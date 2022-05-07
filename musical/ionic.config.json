@@ -1,7 +1,0 @@
-{
-  "name": "musical",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
