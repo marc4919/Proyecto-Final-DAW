@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { AccordionModule } from 'primeng/accordion';
 import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
+import { SwiperModule } from 'swiper/angular';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 
@@ -20,7 +21,8 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     Tab2PageRoutingModule,
     AccordionModule,
     PanelModule,
-    ButtonModule
+    ButtonModule,
+    SwiperModule
   ],
   declarations: [Tab2Page]
 })
