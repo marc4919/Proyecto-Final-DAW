@@ -32,8 +32,9 @@ Inicio Móvil - Entorno Android / Iphone
 
 ## Iniciar Symfony App
 
-Inicio Normal - Entorno Estandar
+Inicio Normal - Entorno de Pruebas Estandar
 
 ```bash
   symfony server:start
 ```
+https://localhost:8000/api -> API Platform
