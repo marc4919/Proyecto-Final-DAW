@@ -13,6 +13,7 @@ export class TabsPage {
   screenWidth: number;
   mobile = 1;
   darkMode = true;
+  encendida = 'none';
 
 
 
@@ -51,6 +52,13 @@ export class TabsPage {
          change() {
           this.darkMode = !this.darkMode;
           document.body.classList.toggle('dark');
+          if(this.encendida == 'warning'){
+            this.encendida = 'none'
+          }else{
+            this.encendida = 'warning'
+          }
+
+
            }
 
            openFirst() {
