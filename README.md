@@ -14,7 +14,7 @@
 
 **Cliente:** Ionic, Angular, PrimeNG, Swiper
 
-**Servidor:** Symfony
+**Servidor:** Symfony, API Platform
 
 
 ## Iniciar Ionic App
