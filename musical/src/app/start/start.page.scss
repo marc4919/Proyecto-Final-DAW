@@ -1,6 +1,45 @@
 ion-button{
   position: fixed;
   left: 20%;
-  bottom: 30%;
+  bottom: 40%;
   right: 20%;
+  margin-top: 0;
 }
+
+span{
+  white-space: pre;
+}
+
+h1{
+  margin-top: 70%;
+  text-align: center;
+  margin-bottom:0;
+}
+h1 {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 5s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+  @keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
