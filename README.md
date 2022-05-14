@@ -29,3 +29,11 @@ Inicio Móvil - Entorno Android / Iphone
 ```bash
   ionic serve --lab
 ```
+
+## Iniciar Symfony App
+
+Inicio Normal - Entorno Estandar
+
+```bash
+  symfony server:start
+```
