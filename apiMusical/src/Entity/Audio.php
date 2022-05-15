@@ -24,6 +24,9 @@ class Audio
     #[ORM\Column(type: 'string', length: 255)]
     private $Enlace;
 
+    #[ORM\ManyToOne(targetEntity: Musical::class, inversedBy: 'audios')]
+    private $musical;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +64,18 @@ class Audio
     public function setEnlace(string $Enlace): self
     {
         $this->Enlace = $Enlace;
+
+        return $this;
+    }
+
+    public function getMusical(): ?Musical
+    {
+        return $this->musical;
+    }
+
+    public function setMusical(?Musical $musical): self
+    {
+        $this->musical = $musical;
 
         return $this;
     }
