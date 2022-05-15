@@ -13,6 +13,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'Descripcion',
                     'Tipo',
                     'Enlace',
+                    'musical',
                     'descripcion',
                     'tipo',
                     'enlace',
