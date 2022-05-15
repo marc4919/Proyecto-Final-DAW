@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Musical index{% endblock %}
+
+{% block body %}
+    <h1>Musical index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Sinopsis</th>
+                <th>Cartel</th>
+                <th>Anyo</th>
+                <th>Video</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for musical in musicals %}
+            <tr>
+                <td>{{ musical.id }}</td>
+                <td>{{ musical.Nombre }}</td>
+                <td>{{ musical.Sinopsis }}</td>
+                <td><img style="width:50px" src="/uploads/carteles/{{ musical.Cartel }}"></img></td>
+                <td>{{ musical.Anyo }}</td>
+                <td>{{ musical.Video }}</td>
+                <td>
+                    <a href="{{ path('app_musical_show', {'id': musical.id}) }}">show</a>
+                    <a href="{{ path('app_musical_edit', {'id': musical.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_musical_new') }}">Create new</a>
+{% endblock %}
