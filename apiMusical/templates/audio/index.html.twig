@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Audio index{% endblock %}
+
+{% block body %}
+    <h1>Audio index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>Tipo</th>
+                <th>Enlace</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for audio in audio %}
+            <tr>
+                <td>{{ audio.id }}</td>
+                <td>{{ audio.Descripcion }}</td>
+                <td>{{ audio.Tipo }}</td>
+                <td>{{ audio.Enlace }}</td>
+                <td>
+                    <a href="{{ path('app_audio_show', {'id': audio.id}) }}">show</a>
+                    <a href="{{ path('app_audio_edit', {'id': audio.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_audio_new') }}">Create new</a>
+{% endblock %}

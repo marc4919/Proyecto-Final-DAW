@@ -196,4 +196,9 @@ class Musical
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getNombre();
+    }
 }

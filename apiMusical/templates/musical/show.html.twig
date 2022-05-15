@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Musical{% endblock %}
+
+{% block body %}
+    <h1>Musical</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ musical.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ musical.Nombre }}</td>
+            </tr>
+            <tr>
+                <th>Sinopsis</th>
+                <td>{{ musical.Sinopsis }}</td>
+            </tr>
+            <tr>
+                <th>Cartel</th>
+                <td><img src="{{ musical.Cartel }}"></img></td>
+            </tr>
+            <tr>
+                <th>Anyo</th>
+                <td>{{ musical.Anyo }}</td>
+            </tr>
+            <tr>
+                <th>Video</th>
+                <td>{{ musical.Video }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_musical_index') }}">back to list</a>
+
+    <a href="{{ path('app_musical_edit', {'id': musical.id}) }}">edit</a>
+
+    {{ include('musical/_delete_form.html.twig') }}
+{% endblock %}

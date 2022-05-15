@@ -54,6 +54,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="carteles_directory">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/public/uploads/carteles</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -305,12 +306,52 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\AudioController" class="App\Controller\AudioController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\AudioController"/>
+      </call>
+    </service>
+    <service id="App\Controller\ImagenController" class="App\Controller\ImagenController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ImagenController"/>
+      </call>
+    </service>
     <service id="App\Controller\MainController" class="App\Controller\MainController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\MainController"/>
       </call>
+    </service>
+    <service id="App\Controller\MusicalController" class="App\Controller\MusicalController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\MusicalController"/>
+      </call>
+    </service>
+    <service id="App\Controller\ParticipanteController" class="App\Controller\ParticipanteController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ParticipanteController"/>
+      </call>
+    </service>
+    <service id="App\Form\AudioType" class="App\Form\AudioType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ImagenType" class="App\Form\ImagenType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\MusicalType" class="App\Form\MusicalType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ParticipanteType" class="App\Form\ParticipanteType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
     </service>
     <service id="App\Repository\AudioRepository" class="App\Repository\AudioRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -862,9 +903,14 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\AudioType</argument>
+        <argument>App\Form\ImagenType</argument>
+        <argument>App\Form\MusicalType</argument>
+        <argument>App\Form\ParticipanteType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1887,6 +1933,7 @@
         <argument type="service" id="serializer.normalizer.json_serializable"/>
         <argument type="service" id="serializer.normalizer.datetime"/>
         <argument type="service" id="serializer.normalizer.constraint_violation_list"/>
+        <argument type="service" id="serializer.normalizer.mime_message"/>
         <argument type="service" id="serializer.normalizer.datetimezone"/>
         <argument type="service" id="serializer.normalizer.dateinterval"/>
         <argument type="service" id="serializer.normalizer.form_error"/>
@@ -1914,6 +1961,10 @@
       <argument type="collection"/>
       <argument type="service" id="serializer.name_converter.metadata_aware"/>
     </service>
+    <service id="serializer.normalizer.mime_message" class="Symfony\Component\Serializer\Normalizer\MimeMessageNormalizer">
+      <tag name="serializer.normalizer" priority="-915"/>
+      <argument type="service" id="serializer.normalizer.property"/>
+    </service>
     <service id="serializer.normalizer.datetimezone" class="Symfony\Component\Serializer\Normalizer\DateTimeZoneNormalizer">
       <tag name="serializer.normalizer" priority="-915"/>
     </service>
@@ -1922,7 +1973,7 @@
     </service>
     <service id="serializer.normalizer.data_uri" class="Symfony\Component\Serializer\Normalizer\DataUriNormalizer">
       <tag name="serializer.normalizer" priority="-920"/>
-      <argument>null</argument>
+      <argument type="service" id="mime_types" on-invalid="null"/>
     </service>
     <service id="serializer.normalizer.datetime" class="Symfony\Component\Serializer\Normalizer\DateTimeNormalizer">
       <tag name="serializer.normalizer" priority="-910"/>
@@ -2194,7 +2245,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.y4dplYt"/>
+      <argument type="service" id=".service_locator.lozJgue"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -2363,6 +2414,11 @@
       <argument type="service" id="property_info"/>
       <argument type="service" id="property_info"/>
       <argument>null</argument>
+    </service>
+    <service id="mime_types" class="Symfony\Component\Mime\MimeTypes">
+      <call method="setDefault">
+        <argument type="service" id="mime_types"/>
+      </call>
     </service>
     <service id="maker.file_manager" class="Symfony\Bundle\MakerBundle\FileManager">
       <argument type="service" id="filesystem"/>
@@ -4277,9 +4333,29 @@
     <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter">
       <argument type="service" id="argument_metadata_factory"/>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AudioController" class="App\Controller\AudioController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AudioController" class="App\Controller\AudioController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AudioController" class="App\Controller\AudioController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ImagenController" class="App\Controller\ImagenController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ImagenController" class="App\Controller\ImagenController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ImagenController" class="App\Controller\ImagenController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MusicalController" class="App\Controller\MusicalController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MusicalController" class="App\Controller\MusicalController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MusicalController" class="App\Controller\MusicalController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ParticipanteController" class="App\Controller\ParticipanteController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ParticipanteController" class="App\Controller\ParticipanteController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ParticipanteController" class="App\Controller\ParticipanteController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AudioType" class="App\Form\AudioType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\AudioType" class="App\Form\AudioType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ImagenType" class="App\Form\ImagenType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ImagenType" class="App\Form\ImagenType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MusicalType" class="App\Form\MusicalType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MusicalType" class="App\Form\MusicalType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParticipanteType" class="App\Form\ParticipanteType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ParticipanteType" class="App\Form\ParticipanteType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AudioRepository" class="App\Repository\AudioRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AudioRepository" class="App\Repository\AudioRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImagenRepository" class="App\Repository\ImagenRepository" autowire="true" abstract="true"/>
@@ -4616,15 +4692,138 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.o3sqUs1" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.GVBnakq" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="audioRepository" type="service_closure" id="App\Repository\AudioRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.F04_Ow9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="audio" type="service_closure" id=".errored..service_locator.F04_Ow9.App\Entity\Audio"/>
+      </argument>
+    </service>
+    <service id=".service_locator.aLucqk5" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="audio" type="service_closure" id=".errored..service_locator.aLucqk5.App\Entity\Audio"/>
+        <argument key="audioRepository" type="service_closure" id="App\Repository\AudioRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.1JxlpHD" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="imagenRepository" type="service_closure" id="App\Repository\ImagenRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.yDYuMo6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="imagen" type="service_closure" id=".errored..service_locator.yDYuMo6.App\Entity\Imagen"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ifuwGJX" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="imagen" type="service_closure" id=".errored..service_locator.ifuwGJX.App\Entity\Imagen"/>
+        <argument key="imagenRepository" type="service_closure" id="App\Repository\ImagenRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator..O6Vl0J" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="musicalRepository" type="service_closure" id="App\Repository\MusicalRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.9F18iJP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="musicalRepository" type="service_closure" id="App\Repository\MusicalRepository"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
+      </argument>
+    </service>
+    <service id=".service_locator..oD9six" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="musical" type="service_closure" id=".errored..service_locator..oD9six.App\Entity\Musical"/>
+      </argument>
+    </service>
+    <service id=".service_locator.P_nCRXz" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="musical" type="service_closure" id=".errored..service_locator.P_nCRXz.App\Entity\Musical"/>
+        <argument key="musicalRepository" type="service_closure" id="App\Repository\MusicalRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.aKM6MDa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.fh89mcT" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="participante" type="service_closure" id=".errored..service_locator.fh89mcT.App\Entity\Participante"/>
+      </argument>
+    </service>
+    <service id=".service_locator.pPSJa7S" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="participante" type="service_closure" id=".errored..service_locator.pPSJa7S.App\Entity\Participante"/>
+      </argument>
+    </service>
+    <service id=".service_locator.BW1Xm4N" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\AudioController::delete" type="service_closure" id=".service_locator.aLucqk5"/>
+        <argument key="App\Controller\AudioController::edit" type="service_closure" id=".service_locator.aLucqk5"/>
+        <argument key="App\Controller\AudioController::index" type="service_closure" id=".service_locator.GVBnakq"/>
+        <argument key="App\Controller\AudioController::new" type="service_closure" id=".service_locator.GVBnakq"/>
+        <argument key="App\Controller\AudioController::show" type="service_closure" id=".service_locator.F04_Ow9"/>
+        <argument key="App\Controller\ImagenController::delete" type="service_closure" id=".service_locator.ifuwGJX"/>
+        <argument key="App\Controller\ImagenController::edit" type="service_closure" id=".service_locator.ifuwGJX"/>
+        <argument key="App\Controller\ImagenController::index" type="service_closure" id=".service_locator.1JxlpHD"/>
+        <argument key="App\Controller\ImagenController::new" type="service_closure" id=".service_locator.1JxlpHD"/>
+        <argument key="App\Controller\ImagenController::show" type="service_closure" id=".service_locator.yDYuMo6"/>
+        <argument key="App\Controller\MusicalController::delete" type="service_closure" id=".service_locator.P_nCRXz"/>
+        <argument key="App\Controller\MusicalController::edit" type="service_closure" id=".service_locator.P_nCRXz"/>
+        <argument key="App\Controller\MusicalController::index" type="service_closure" id=".service_locator..O6Vl0J"/>
+        <argument key="App\Controller\MusicalController::new" type="service_closure" id=".service_locator.9F18iJP"/>
+        <argument key="App\Controller\MusicalController::show" type="service_closure" id=".service_locator..oD9six"/>
+        <argument key="App\Controller\ParticipanteController::delete" type="service_closure" id=".service_locator.pPSJa7S"/>
+        <argument key="App\Controller\ParticipanteController::edit" type="service_closure" id=".service_locator.pPSJa7S"/>
+        <argument key="App\Controller\ParticipanteController::index" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ParticipanteController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ParticipanteController::show" type="service_closure" id=".service_locator.fh89mcT"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
+        <argument key="App\Controller\AudioController:delete" type="service_closure" id=".service_locator.aLucqk5"/>
+        <argument key="App\Controller\AudioController:edit" type="service_closure" id=".service_locator.aLucqk5"/>
+        <argument key="App\Controller\AudioController:index" type="service_closure" id=".service_locator.GVBnakq"/>
+        <argument key="App\Controller\AudioController:new" type="service_closure" id=".service_locator.GVBnakq"/>
+        <argument key="App\Controller\AudioController:show" type="service_closure" id=".service_locator.F04_Ow9"/>
+        <argument key="App\Controller\ImagenController:delete" type="service_closure" id=".service_locator.ifuwGJX"/>
+        <argument key="App\Controller\ImagenController:edit" type="service_closure" id=".service_locator.ifuwGJX"/>
+        <argument key="App\Controller\ImagenController:index" type="service_closure" id=".service_locator.1JxlpHD"/>
+        <argument key="App\Controller\ImagenController:new" type="service_closure" id=".service_locator.1JxlpHD"/>
+        <argument key="App\Controller\ImagenController:show" type="service_closure" id=".service_locator.yDYuMo6"/>
+        <argument key="App\Controller\MusicalController:delete" type="service_closure" id=".service_locator.P_nCRXz"/>
+        <argument key="App\Controller\MusicalController:edit" type="service_closure" id=".service_locator.P_nCRXz"/>
+        <argument key="App\Controller\MusicalController:index" type="service_closure" id=".service_locator..O6Vl0J"/>
+        <argument key="App\Controller\MusicalController:new" type="service_closure" id=".service_locator.9F18iJP"/>
+        <argument key="App\Controller\MusicalController:show" type="service_closure" id=".service_locator..oD9six"/>
+        <argument key="App\Controller\ParticipanteController:delete" type="service_closure" id=".service_locator.pPSJa7S"/>
+        <argument key="App\Controller\ParticipanteController:edit" type="service_closure" id=".service_locator.pPSJa7S"/>
+        <argument key="App\Controller\ParticipanteController:index" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ParticipanteController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ParticipanteController:show" type="service_closure" id=".service_locator.fh89mcT"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.bRdave9"/>
@@ -4682,9 +4881,13 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.y4dplYt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.lozJgue" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\AudioType" type="service_closure" id="App\Form\AudioType"/>
+        <argument key="App\Form\ImagenType" type="service_closure" id="App\Form\ImagenType"/>
+        <argument key="App\Form\MusicalType" type="service_closure" id="App\Form\MusicalType"/>
+        <argument key="App\Form\ParticipanteType" type="service_closure" id="App\Form\ParticipanteType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -4737,9 +4940,33 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\AudioController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AudioController"/>
+      <argument>App\Controller\AudioController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\ImagenController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ImagenController"/>
+      <argument>App\Controller\ImagenController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\MainController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MainController"/>
       <argument>App\Controller\MainController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\MusicalController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MusicalController"/>
+      <argument>App\Controller\MusicalController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\ParticipanteController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ParticipanteController"/>
+      <argument>App\Controller\ParticipanteController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
@@ -4876,12 +5103,12 @@
     <service id="debug.argument_resolver.request.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver"/>
     <service id="debug.argument_resolver.session.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver"/>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.o3sqUs1"/>
+      <argument type="service" id=".service_locator.BW1Xm4N"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.o3sqUs1"/>
+      <argument type="service" id=".service_locator.BW1Xm4N"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -4941,6 +5168,14 @@
     </service>
     <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.F04_Ow9.App\Entity\Audio" class="App\Entity\Audio"/>
+    <service id=".errored..service_locator.aLucqk5.App\Entity\Audio" class="App\Entity\Audio"/>
+    <service id=".errored..service_locator.yDYuMo6.App\Entity\Imagen" class="App\Entity\Imagen"/>
+    <service id=".errored..service_locator.ifuwGJX.App\Entity\Imagen" class="App\Entity\Imagen"/>
+    <service id=".errored..service_locator..oD9six.App\Entity\Musical" class="App\Entity\Musical"/>
+    <service id=".errored..service_locator.P_nCRXz.App\Entity\Musical" class="App\Entity\Musical"/>
+    <service id=".errored..service_locator.fh89mcT.App\Entity\Participante" class="App\Entity\Participante"/>
+    <service id=".errored..service_locator.pPSJa7S.App\Entity\Participante" class="App\Entity\Participante"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -5571,6 +5806,8 @@
     <service id="form.choice_list_factory" alias="form.choice_list_factory.cached"/>
     <service id="Symfony\Component\Validator\Validator\ValidatorInterface" alias="validator"/>
     <service id="validator.mapping.class_metadata_factory" alias="validator"/>
+    <service id="Symfony\Component\Mime\MimeTypesInterface" alias="mime_types"/>
+    <service id="Symfony\Component\Mime\MimeTypeGuesserInterface" alias="mime_types"/>
     <service id="Doctrine\DBAL\Driver\Connection" alias="doctrine.dbal.default_connection"/>
     <service id="Doctrine\DBAL\Connection" alias="doctrine.dbal.default_connection"/>
     <service id="Doctrine\Persistence\ManagerRegistry" alias="doctrine"/>
@@ -5648,7 +5885,7 @@
     <service id="Twig\Environment" alias="twig"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.o3sqUs1"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.BW1Xm4N"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -5662,9 +5899,10 @@
     <service id=".service_locator.bnaLdkn" alias="api_platform.serializer_locator"/>
     <service id=".service_locator.Xbsa8iG" alias="api_platform.filter_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.IVq3S6E" alias=".service_locator.o3sqUs1"/>
+    <service id=".service_locator.ng5GItH" alias=".service_locator.pPSJa7S"/>
+    <service id=".service_locator.4r_aKMg" alias=".service_locator.BW1Xm4N"/>
     <service id=".service_locator.bkUSUfi" alias=".service_locator.AHPGEE6"/>
-    <service id=".service_locator.Za9MpXe" alias=".service_locator.y4dplYt"/>
+    <service id=".service_locator.noH65o8" alias=".service_locator.lozJgue"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
     <service id=".service_locator.0ghLsew" alias=".service_locator.mx0UMmY"/>
     <service id="api_platform.metadata.property.metadata_factory.property_info.inner" alias="api_platform.metadata.property.metadata_factory.xml"/>
@@ -5719,6 +5957,19 @@
     <service id="api_platform.metadata.property.metadata_factory.cached.inner" alias="api_platform.metadata.property.metadata_factory.validator"/>
     <service id=".service_locator.FatRZu2" alias=".service_locator.bRdave9"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
+    <service id=".service_locator.GAhU8nS" alias=".service_locator.GVBnakq"/>
+    <service id=".service_locator.taim0T_" alias=".service_locator.F04_Ow9"/>
+    <service id=".service_locator.SGEccQr" alias=".service_locator.aLucqk5"/>
+    <service id=".service_locator.UdmhwO6" alias=".service_locator.1JxlpHD"/>
+    <service id=".service_locator.6lrzHZE" alias=".service_locator.yDYuMo6"/>
+    <service id=".service_locator.BXyMzT0" alias=".service_locator.ifuwGJX"/>
+    <service id=".service_locator.b9HBK41" alias=".service_locator..O6Vl0J"/>
+    <service id=".service_locator.IxSp_qM" alias=".service_locator.9F18iJP"/>
+    <service id=".service_locator.EBfelc7" alias=".service_locator..oD9six"/>
+    <service id=".service_locator.ctBYXtD" alias=".service_locator.P_nCRXz"/>
+    <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
+    <service id=".service_locator.m0rLMAF" alias=".service_locator.fh89mcT"/>
+    <service id=".service_locator.LpoCuEq" alias=".service_locator.pPSJa7S"/>
     <service id=".service_locator.rQzpS43" alias=".service_locator.mx0UMmY"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>
   </services>
