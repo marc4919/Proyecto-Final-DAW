@@ -55,6 +55,8 @@
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
     <parameter key="carteles_directory">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/public/uploads/carteles</parameter>
+    <parameter key="audios_directory">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/public/uploads/audios</parameter>
+    <parameter key="images_directory">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/public/uploads/images</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -4698,6 +4700,13 @@
         <argument key="audioRepository" type="service_closure" id="App\Repository\AudioRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.Yxvt7jM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="audioRepository" type="service_closure" id="App\Repository\AudioRepository"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
+      </argument>
+    </service>
     <service id=".service_locator.F04_Ow9" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4715,6 +4724,13 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="imagenRepository" type="service_closure" id="App\Repository\ImagenRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ym5Vfwx" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="imagenRepository" type="service_closure" id="App\Repository\ImagenRepository"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
       </argument>
     </service>
     <service id=".service_locator.yDYuMo6" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4775,18 +4791,18 @@
         <argument key="participante" type="service_closure" id=".errored..service_locator.pPSJa7S.App\Entity\Participante"/>
       </argument>
     </service>
-    <service id=".service_locator.BW1Xm4N" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._Oy6z55" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AudioController::delete" type="service_closure" id=".service_locator.aLucqk5"/>
         <argument key="App\Controller\AudioController::edit" type="service_closure" id=".service_locator.aLucqk5"/>
         <argument key="App\Controller\AudioController::index" type="service_closure" id=".service_locator.GVBnakq"/>
-        <argument key="App\Controller\AudioController::new" type="service_closure" id=".service_locator.GVBnakq"/>
+        <argument key="App\Controller\AudioController::new" type="service_closure" id=".service_locator.Yxvt7jM"/>
         <argument key="App\Controller\AudioController::show" type="service_closure" id=".service_locator.F04_Ow9"/>
         <argument key="App\Controller\ImagenController::delete" type="service_closure" id=".service_locator.ifuwGJX"/>
         <argument key="App\Controller\ImagenController::edit" type="service_closure" id=".service_locator.ifuwGJX"/>
         <argument key="App\Controller\ImagenController::index" type="service_closure" id=".service_locator.1JxlpHD"/>
-        <argument key="App\Controller\ImagenController::new" type="service_closure" id=".service_locator.1JxlpHD"/>
+        <argument key="App\Controller\ImagenController::new" type="service_closure" id=".service_locator.ym5Vfwx"/>
         <argument key="App\Controller\ImagenController::show" type="service_closure" id=".service_locator.yDYuMo6"/>
         <argument key="App\Controller\MusicalController::delete" type="service_closure" id=".service_locator.P_nCRXz"/>
         <argument key="App\Controller\MusicalController::edit" type="service_closure" id=".service_locator.P_nCRXz"/>
@@ -4807,12 +4823,12 @@
         <argument key="App\Controller\AudioController:delete" type="service_closure" id=".service_locator.aLucqk5"/>
         <argument key="App\Controller\AudioController:edit" type="service_closure" id=".service_locator.aLucqk5"/>
         <argument key="App\Controller\AudioController:index" type="service_closure" id=".service_locator.GVBnakq"/>
-        <argument key="App\Controller\AudioController:new" type="service_closure" id=".service_locator.GVBnakq"/>
+        <argument key="App\Controller\AudioController:new" type="service_closure" id=".service_locator.Yxvt7jM"/>
         <argument key="App\Controller\AudioController:show" type="service_closure" id=".service_locator.F04_Ow9"/>
         <argument key="App\Controller\ImagenController:delete" type="service_closure" id=".service_locator.ifuwGJX"/>
         <argument key="App\Controller\ImagenController:edit" type="service_closure" id=".service_locator.ifuwGJX"/>
         <argument key="App\Controller\ImagenController:index" type="service_closure" id=".service_locator.1JxlpHD"/>
-        <argument key="App\Controller\ImagenController:new" type="service_closure" id=".service_locator.1JxlpHD"/>
+        <argument key="App\Controller\ImagenController:new" type="service_closure" id=".service_locator.ym5Vfwx"/>
         <argument key="App\Controller\ImagenController:show" type="service_closure" id=".service_locator.yDYuMo6"/>
         <argument key="App\Controller\MusicalController:delete" type="service_closure" id=".service_locator.P_nCRXz"/>
         <argument key="App\Controller\MusicalController:edit" type="service_closure" id=".service_locator.P_nCRXz"/>
@@ -5103,12 +5119,12 @@
     <service id="debug.argument_resolver.request.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver"/>
     <service id="debug.argument_resolver.session.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver"/>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.BW1Xm4N"/>
+      <argument type="service" id=".service_locator._Oy6z55"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.BW1Xm4N"/>
+      <argument type="service" id=".service_locator._Oy6z55"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -5885,7 +5901,7 @@
     <service id="Twig\Environment" alias="twig"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.BW1Xm4N"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator._Oy6z55"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -5900,7 +5916,7 @@
     <service id=".service_locator.Xbsa8iG" alias="api_platform.filter_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.ng5GItH" alias=".service_locator.pPSJa7S"/>
-    <service id=".service_locator.4r_aKMg" alias=".service_locator.BW1Xm4N"/>
+    <service id=".service_locator.CYlZLBk" alias=".service_locator._Oy6z55"/>
     <service id=".service_locator.bkUSUfi" alias=".service_locator.AHPGEE6"/>
     <service id=".service_locator.noH65o8" alias=".service_locator.lozJgue"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
@@ -5958,9 +5974,11 @@
     <service id=".service_locator.FatRZu2" alias=".service_locator.bRdave9"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
     <service id=".service_locator.GAhU8nS" alias=".service_locator.GVBnakq"/>
+    <service id=".service_locator.jzSHxW_" alias=".service_locator.Yxvt7jM"/>
     <service id=".service_locator.taim0T_" alias=".service_locator.F04_Ow9"/>
     <service id=".service_locator.SGEccQr" alias=".service_locator.aLucqk5"/>
     <service id=".service_locator.UdmhwO6" alias=".service_locator.1JxlpHD"/>
+    <service id=".service_locator.C.gZA7m" alias=".service_locator.ym5Vfwx"/>
     <service id=".service_locator.6lrzHZE" alias=".service_locator.yDYuMo6"/>
     <service id=".service_locator.BXyMzT0" alias=".service_locator.ifuwGJX"/>
     <service id=".service_locator.b9HBK41" alias=".service_locator..O6Vl0J"/>
