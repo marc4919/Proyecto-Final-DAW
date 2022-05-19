@@ -5,7 +5,8 @@ namespace App\Form;
 use App\Entity\Imagen;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+//use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\UX\Dropzone\Form\DropzoneType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ImagenType extends AbstractType
@@ -14,7 +15,7 @@ class ImagenType extends AbstractType
     {
         $builder
             ->add('Descripcion')
-            ->add('Enlace', type: FileType::class)
+            ->add('Enlace', type: DropzoneType::class)
             ->add('musical')
         ;
     }
