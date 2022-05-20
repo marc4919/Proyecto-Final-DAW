@@ -4,6 +4,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { AccordionModule } from 'primeng/accordion';
 import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
+import { MusicalesService } from './services/musicales.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -16,8 +18,9 @@ import { AppComponent } from './app.component';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AccordionModule,
     PanelModule,
     ButtonModule,
+    HttpClientModule
     ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, MusicalesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
