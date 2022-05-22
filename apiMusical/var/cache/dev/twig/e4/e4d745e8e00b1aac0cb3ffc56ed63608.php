@@ -75,10 +75,10 @@ class __TwigTemplate_784bd1bfd2e725d65ba2e794c4cd2e26 extends Template
     <table class=\"table\">
         <thead>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Tipo</th>
                 <th>Enlace</th>
-                <th>actions</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -133,7 +133,7 @@ class __TwigTemplate_784bd1bfd2e725d65ba2e794c4cd2e26 extends Template
     <a href=\"";
         // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_audio_new");
-        echo "\">Create new</a>
+        echo "\">Añadir Audio</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -167,10 +167,10 @@ class __TwigTemplate_784bd1bfd2e725d65ba2e794c4cd2e26 extends Template
     <table class=\"table\">
         <thead>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Tipo</th>
                 <th>Enlace</th>
-                <th>actions</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -192,7 +192,7 @@ class __TwigTemplate_784bd1bfd2e725d65ba2e794c4cd2e26 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_audio_new') }}\">Create new</a>
+    <a href=\"{{ path('app_audio_new') }}\">Añadir Audio</a>
 {% endblock %}
 ", "audio/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/audio/index.html.twig");
     }

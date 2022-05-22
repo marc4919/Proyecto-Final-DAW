@@ -1,3 +1,0 @@
-<?php //route_name_cae603655af74d1a31d6530e15f2d21b
-
-return [PHP_INT_MAX, 'api_audio_get_item'];

@@ -75,9 +75,9 @@ class __TwigTemplate_95a4ac18a3e50f39c0e5cbf6dc302e40 extends Template
     <table class=\"table\">
         <thead>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Enlace</th>
-                <th>actions</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -128,7 +128,7 @@ class __TwigTemplate_95a4ac18a3e50f39c0e5cbf6dc302e40 extends Template
     <a href=\"";
         // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_imagen_new");
-        echo "\">Create new</a>
+        echo "\">Añadir Imagen</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -162,9 +162,9 @@ class __TwigTemplate_95a4ac18a3e50f39c0e5cbf6dc302e40 extends Template
     <table class=\"table\">
         <thead>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Enlace</th>
-                <th>actions</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -185,7 +185,7 @@ class __TwigTemplate_95a4ac18a3e50f39c0e5cbf6dc302e40 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_imagen_new') }}\">Create new</a>
+    <a href=\"{{ path('app_imagen_new') }}\">Añadir Imagen</a>
 {% endblock %}
 ", "imagen/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/imagen/index.html.twig");
     }

@@ -1,3 +1,0 @@
-<?php //route_name_07642d0f426647d5c5c964ef6e84f9ee
-
-return [PHP_INT_MAX, 'api_participantes_get_item'];

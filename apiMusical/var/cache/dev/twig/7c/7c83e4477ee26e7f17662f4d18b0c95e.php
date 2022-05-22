@@ -82,6 +82,11 @@ class __TwigTemplate_d937c03f13bacb2b6d9cf0098a05e642 extends Template
 \t\t
 \t\t<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\">
 \t\t<link rel=\"stylesheet\" href=\"../../css/style.css\">
+\t\t<style>
+\t\t.form-control{
+\t\t\tborder: 0.1em grey solid
+\t\t}
+\t\t</style>
   </head>
   <body>
 \t\t
@@ -132,9 +137,9 @@ class __TwigTemplate_d937c03f13bacb2b6d9cf0098a05e642 extends Template
 
         
         ";
-        // line 66
+        // line 71
         $this->displayBlock('contenido', $context, $blocks);
-        // line 67
+        // line 72
         echo "      </div>
 \t\t</div>
 
@@ -150,7 +155,7 @@ class __TwigTemplate_d937c03f13bacb2b6d9cf0098a05e642 extends Template
 
     }
 
-    // line 66
+    // line 71
     public function block_contenido($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -175,7 +180,7 @@ class __TwigTemplate_d937c03f13bacb2b6d9cf0098a05e642 extends Template
 
     public function getDebugInfo()
     {
-        return array (  154 => 66,  138 => 67,  136 => 66,  74 => 6,  67 => 5,  54 => 3,  37 => 1,);
+        return array (  159 => 71,  143 => 72,  141 => 71,  74 => 6,  67 => 5,  54 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -196,6 +201,11 @@ class __TwigTemplate_d937c03f13bacb2b6d9cf0098a05e642 extends Template
 \t\t
 \t\t<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\">
 \t\t<link rel=\"stylesheet\" href=\"../../css/style.css\">
+\t\t<style>
+\t\t.form-control{
+\t\t\tborder: 0.1em grey solid
+\t\t}
+\t\t</style>
   </head>
   <body>
 \t\t

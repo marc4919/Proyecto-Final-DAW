@@ -15,7 +15,9 @@ class ImagenType extends AbstractType
     {
         $builder
             ->add('Descripcion')
-            ->add('Enlace', DropzoneType::class, array('data_class' => null))
+            ->add('Enlace', DropzoneType::class, array('data_class' => null, 'attr' => array(
+                'placeholder' => 'Arrastra aquí o Seleciona'
+            )))
             ->add('musical')
         ;
     }
