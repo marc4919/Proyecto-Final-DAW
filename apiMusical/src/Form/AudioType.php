@@ -16,7 +16,7 @@ class AudioType extends AbstractType
         $builder
             ->add('Descripcion')
             ->add('Tipo')
-            ->add('Enlace', type: DropzoneType::class)
+            ->add('Enlace', DropzoneType::class, array('data_class' => null))
             ->add('musical')
         ;
     }

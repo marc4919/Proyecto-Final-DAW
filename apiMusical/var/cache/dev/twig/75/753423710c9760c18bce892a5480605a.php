@@ -26,14 +26,14 @@ class __TwigTemplate_6b9756f77e5277345f606dac126e80a8 extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
-            'body' => [$this, 'block_body'],
+            'contenido' => [$this, 'block_contenido'],
         ];
     }
 
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -42,7 +42,7 @@ class __TwigTemplate_6b9756f77e5277345f606dac126e80a8 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "musical/show.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "musical/show.html.twig", 1);
+        $this->parent = $this->loadTemplate("layout.html.twig", "musical/show.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -63,11 +63,11 @@ class __TwigTemplate_6b9756f77e5277345f606dac126e80a8 extends Template
     }
 
     // line 5
-    public function block_body($context, array $blocks = [])
+    public function block_contenido($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "contenido"));
 
         // line 6
         echo "    <h1>Musical</h1>
@@ -156,11 +156,11 @@ class __TwigTemplate_6b9756f77e5277345f606dac126e80a8 extends Template
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'layout.html.twig' %}
 
 {% block title %}Musical{% endblock %}
 
-{% block body %}
+{% block contenido %}
     <h1>Musical</h1>
 
     <table class=\"table\">
