@@ -308,6 +308,7 @@
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>@Dropzone/form_theme.html.twig</parameter>
+      <parameter>bootstrap_4_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates</parameter>
     <parameter key="maker.compatible_check.doctrine.supports_attributes">true</parameter>

@@ -16,7 +16,9 @@ class MusicalType extends AbstractType
         $builder
             ->add('Nombre')
             ->add('Sinopsis')
-            ->add('Cartel', DropzoneType::class , array('data_class' => null))
+            ->add('Cartel', DropzoneType::class , array('data_class' => null, 'attr' => array(
+                'placeholder' => 'Arrastra aquí o Seleciona'
+            )))
             ->add('Anyo')
             ->add('Video')
             ->add('participantes')

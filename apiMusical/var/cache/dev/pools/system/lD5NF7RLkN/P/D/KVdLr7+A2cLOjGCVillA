@@ -1,3 +1,0 @@
-<?php //route_name_7ded55956df6e6f2fce5d1b3a35a4ef2
-
-return [PHP_INT_MAX, 'api_imagens_get_item'];

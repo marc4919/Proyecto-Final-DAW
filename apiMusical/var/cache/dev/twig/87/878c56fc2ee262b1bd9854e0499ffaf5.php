@@ -80,7 +80,7 @@ class __TwigTemplate_f073f43cbd8c0f953f18134f6a0ca33e extends Template
                 <th>Cartel</th>
                 <th>Año</th>
                 <th>Vídeo</th>
-                <th>actions</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -143,7 +143,7 @@ class __TwigTemplate_f073f43cbd8c0f953f18134f6a0ca33e extends Template
     <a href=\"";
         // line 40
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_new");
-        echo "\">Añadir Musical</a>
+        echo "\">Crear Musical</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -182,7 +182,7 @@ class __TwigTemplate_f073f43cbd8c0f953f18134f6a0ca33e extends Template
                 <th>Cartel</th>
                 <th>Año</th>
                 <th>Vídeo</th>
-                <th>actions</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -206,7 +206,7 @@ class __TwigTemplate_f073f43cbd8c0f953f18134f6a0ca33e extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_musical_new') }}\">Añadir Musical</a>
+    <a href=\"{{ path('app_musical_new') }}\">Crear Musical</a>
 {% endblock %}
 ", "musical/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/musical/index.html.twig");
     }

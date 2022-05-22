@@ -77,7 +77,7 @@ class __TwigTemplate_4b5ff4a11d4cb2e3b704b07b53a14ac1 extends Template
             <tr>
                 <th>Nombre</th>
                 <th>Apellidos</th>
-                <th>actions</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -128,7 +128,7 @@ class __TwigTemplate_4b5ff4a11d4cb2e3b704b07b53a14ac1 extends Template
     <a href=\"";
         // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_new");
-        echo "\">Create new</a>
+        echo "\">Añadir Participante</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -164,7 +164,7 @@ class __TwigTemplate_4b5ff4a11d4cb2e3b704b07b53a14ac1 extends Template
             <tr>
                 <th>Nombre</th>
                 <th>Apellidos</th>
-                <th>actions</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -185,7 +185,7 @@ class __TwigTemplate_4b5ff4a11d4cb2e3b704b07b53a14ac1 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_participante_new') }}\">Create new</a>
+    <a href=\"{{ path('app_participante_new') }}\">Añadir Participante</a>
 {% endblock %}
 ", "participante/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/index.html.twig");
     }
