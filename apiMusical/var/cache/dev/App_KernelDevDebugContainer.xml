@@ -4911,7 +4911,57 @@
         </service>
       </argument>
     </service>
-    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap"/>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap">
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.cC_y9W3"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher._TXzoHo"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.YpuLiqW"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher..7tBYY."/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.Y4qxvV4"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.KoEpaR_"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.O7Tsk.w"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
       <argument type="service" id="security.untracked_token_storage"/>
@@ -5448,6 +5498,27 @@
         <argument key="security.firewall.map.context.dev" type="service_closure" id="security.firewall.map.context.dev"/>
         <argument key="security.firewall.map.context.main" type="service_closure" id="security.firewall.map.context.main"/>
       </argument>
+    </service>
+    <service id=".security.request_matcher.cC_y9W3" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/main</argument>
+    </service>
+    <service id=".security.request_matcher._TXzoHo" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/musical</argument>
+    </service>
+    <service id=".security.request_matcher.YpuLiqW" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/participante</argument>
+    </service>
+    <service id=".security.request_matcher..7tBYY." class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/imagen/</argument>
+    </service>
+    <service id=".security.request_matcher.Y4qxvV4" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/audio</argument>
+    </service>
+    <service id=".security.request_matcher.KoEpaR_" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/user</argument>
+    </service>
+    <service id=".security.request_matcher.O7Tsk.w" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/register</argument>
     </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand">
       <tag name="console.command" command="security:encode-password"/>
