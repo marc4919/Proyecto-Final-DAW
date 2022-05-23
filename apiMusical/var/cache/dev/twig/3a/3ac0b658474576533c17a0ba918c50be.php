@@ -44,7 +44,7 @@ class __TwigTemplate_31238b8b69e9991fd49a4ca60087c54b extends Template
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["participante"]) || array_key_exists("participante", $context) ? $context["participante"] : (function () { throw new RuntimeError('Variable "participante" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">Eliminar</button>
 </form>
 ";
         
@@ -71,7 +71,7 @@ class __TwigTemplate_31238b8b69e9991fd49a4ca60087c54b extends Template
     {
         return new Source("<form method=\"post\" action=\"{{ path('app_participante_delete', {'id': participante.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ participante.id) }}\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">Eliminar</button>
 </form>
 ", "participante/_delete_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/_delete_form.html.twig");
     }

@@ -101,12 +101,12 @@ class __TwigTemplate_8f31b5d00dc5b2d964652c540b678143 extends Template
     <a href=\"";
         // line 25
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_index");
-        echo "\">back to list</a>
+        echo "\">Volver a la lista</a>
 
     <a href=\"";
         // line 27
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["participante"]) || array_key_exists("participante", $context) ? $context["participante"] : (function () { throw new RuntimeError('Variable "participante" does not exist.', 27, $this->source); })()), "id", [], "any", false, false, false, 27)]), "html", null, true);
-        echo "\">edit</a>
+        echo "\">Editar</a>
 
     ";
         // line 29
@@ -159,9 +159,9 @@ class __TwigTemplate_8f31b5d00dc5b2d964652c540b678143 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_participante_index') }}\">back to list</a>
+    <a href=\"{{ path('app_participante_index') }}\">Volver a la lista</a>
 
-    <a href=\"{{ path('app_participante_edit', {'id': participante.id}) }}\">edit</a>
+    <a href=\"{{ path('app_participante_edit', {'id': participante.id}) }}\">Editar</a>
 
     {{ include('participante/_delete_form.html.twig') }}
 {% endblock %}

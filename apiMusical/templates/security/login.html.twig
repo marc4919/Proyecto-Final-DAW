@@ -45,10 +45,10 @@
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 		      		<div class="form-group">
-		      			<input type="text" class="form-control rounded-left" placeholder="Username" value="{{ last_username }}" name="username" id="inputUsername" requautocomplete="username" autocomplete="username" required autofocus>
+		      			<input style="border: 1px solid rgba(0, 0, 0, 0.1);" type="text" class="form-control rounded-left" placeholder="Username" value="{{ last_username }}" name="username" id="inputUsername" requautocomplete="username" autocomplete="username" required autofocus>
 		      		</div>
 	            <div class="form-group d-flex">
-	              <input type="password" class="form-control rounded-left" placeholder="Password" name="password" id="inputPassword" autocomplete="current-password" required>
+	              <input style="border: 1px solid rgba(0, 0, 0, 0.1);" type="password" class="form-control rounded-left" placeholder="Password" name="password" id="inputPassword" autocomplete="current-password" required>
 	            </div>
                 <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"

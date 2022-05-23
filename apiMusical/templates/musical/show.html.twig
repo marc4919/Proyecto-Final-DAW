@@ -24,19 +24,19 @@
                 <td><img src="{{ musical.Cartel }}"></img></td>
             </tr>
             <tr>
-                <th>Anyo</th>
+                <th>Año</th>
                 <td>{{ musical.Anyo }}</td>
             </tr>
             <tr>
-                <th>Video</th>
+                <th>Vídeo</th>
                 <td>{{ musical.Video }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_musical_index') }}">back to list</a>
+    <a href="{{ path('app_musical_index') }}">Volver a la lista</a>
 
-    <a href="{{ path('app_musical_edit', {'id': musical.id}) }}">edit</a>
+    <a href="{{ path('app_musical_edit', {'id': musical.id}) }}">Editar</a>
 
     {{ include('musical/_delete_form.html.twig') }}
 {% endblock %}

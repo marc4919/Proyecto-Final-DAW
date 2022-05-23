@@ -3,11 +3,11 @@
 {% block title %}Edit Imagen{% endblock %}
 
 {% block contenido %}
-    <h1>Edit Imagen</h1>
+    <h1>Editar Imagen</h1>
 
     {{ include('imagen/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_imagen_index') }}">back to list</a>
+    <a href="{{ path('app_imagen_index') }}">Volver a la lista</a>
 
     {{ include('imagen/_delete_form.html.twig') }}
 {% endblock %}

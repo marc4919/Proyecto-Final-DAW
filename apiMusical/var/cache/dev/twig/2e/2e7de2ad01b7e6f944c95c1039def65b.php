@@ -82,7 +82,7 @@ class __TwigTemplate_f7e9b3fb248b3417ffe7245ffa512018 extends Template
         echo "</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>";
         // line 16
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["audio"]) || array_key_exists("audio", $context) ? $context["audio"] : (function () { throw new RuntimeError('Variable "audio" does not exist.', 16, $this->source); })()), "Descripcion", [], "any", false, false, false, 16), "html", null, true);
@@ -108,12 +108,12 @@ class __TwigTemplate_f7e9b3fb248b3417ffe7245ffa512018 extends Template
     <a href=\"";
         // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_audio_index");
-        echo "\">back to list</a>
+        echo "\">Volver a la lista</a>
 
     <a href=\"";
         // line 31
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_audio_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["audio"]) || array_key_exists("audio", $context) ? $context["audio"] : (function () { throw new RuntimeError('Variable "audio" does not exist.', 31, $this->source); })()), "id", [], "any", false, false, false, 31)]), "html", null, true);
-        echo "\">edit</a>
+        echo "\">Editar</a>
 
     ";
         // line 33
@@ -156,7 +156,7 @@ class __TwigTemplate_f7e9b3fb248b3417ffe7245ffa512018 extends Template
                 <td>{{ audio.id }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ audio.Descripcion }}</td>
             </tr>
             <tr>
@@ -170,9 +170,9 @@ class __TwigTemplate_f7e9b3fb248b3417ffe7245ffa512018 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_audio_index') }}\">back to list</a>
+    <a href=\"{{ path('app_audio_index') }}\">Volver a la lista</a>
 
-    <a href=\"{{ path('app_audio_edit', {'id': audio.id}) }}\">edit</a>
+    <a href=\"{{ path('app_audio_edit', {'id': audio.id}) }}\">Editar</a>
 
     {{ include('audio/_delete_form.html.twig') }}
 {% endblock %}

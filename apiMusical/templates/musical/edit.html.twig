@@ -3,11 +3,11 @@
 {% block title %}Edit Musical{% endblock %}
 
 {% block contenido %}
-    <h1>Edit Musical</h1>
+    <h1>Editar Musical</h1>
 
     {{ include('musical/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_musical_index') }}">back to list</a>
+    <a href="{{ path('app_musical_index') }}">Volver a la lista</a>
 
     {{ include('musical/_delete_form.html.twig') }}
 {% endblock %}
