@@ -388,6 +388,13 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\SecurityController"/>
       </call>
     </service>
+    <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\UserController"/>
+      </call>
+    </service>
     <service id="App\Form\AudioType" class="App\Form\AudioType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -401,6 +408,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\AudioRepository" class="App\Repository\AudioRepository" autowire="true" autoconfigure="true">
@@ -997,6 +1007,7 @@
         <argument>App\Form\MusicalType</argument>
         <argument>App\Form\ParticipanteType</argument>
         <argument>App\Form\RegistrationFormType</argument>
+        <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -2469,7 +2480,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.HLKdpRp"/>
+      <argument type="service" id=".service_locator.ZBIBESi"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5488,6 +5499,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AudioType" class="App\Form\AudioType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AudioType" class="App\Form\AudioType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ImagenType" class="App\Form\ImagenType" autowire="true" abstract="true"/>
@@ -5498,6 +5512,8 @@
     <service id=".abstract.instanceof.App\Form\ParticipanteType" class="App\Form\ParticipanteType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AudioRepository" class="App\Repository\AudioRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AudioRepository" class="App\Repository\AudioRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImagenRepository" class="App\Repository\ImagenRepository" autowire="true" abstract="true"/>
@@ -5948,7 +5964,26 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.ttDXVrL" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Q1F27w5" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.4T4EJFR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="user" type="service_closure" id=".errored..service_locator.4T4EJFR.App\Entity\User"/>
+      </argument>
+    </service>
+    <service id=".service_locator.9uW928t" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="user" type="service_closure" id=".errored..service_locator.9uW928t.App\Entity\User"/>
+        <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.gSTNmPn" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AudioController::delete" type="service_closure" id=".service_locator.aLucqk5"/>
@@ -5973,6 +6008,11 @@
         <argument key="App\Controller\ParticipanteController::show" type="service_closure" id=".service_locator.fh89mcT"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.59.oRhZ"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
+        <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.9uW928t"/>
+        <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.9uW928t"/>
+        <argument key="App\Controller\UserController::index" type="service_closure" id=".service_locator.Q1F27w5"/>
+        <argument key="App\Controller\UserController::new" type="service_closure" id=".service_locator.Q1F27w5"/>
+        <argument key="App\Controller\UserController::show" type="service_closure" id=".service_locator.4T4EJFR"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
@@ -6001,6 +6041,11 @@
         <argument key="App\Controller\ParticipanteController:show" type="service_closure" id=".service_locator.fh89mcT"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.59.oRhZ"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
+        <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.9uW928t"/>
+        <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.9uW928t"/>
+        <argument key="App\Controller\UserController:index" type="service_closure" id=".service_locator.Q1F27w5"/>
+        <argument key="App\Controller\UserController:new" type="service_closure" id=".service_locator.Q1F27w5"/>
+        <argument key="App\Controller\UserController:show" type="service_closure" id=".service_locator.4T4EJFR"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.bRdave9"/>
@@ -6065,7 +6110,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.HLKdpRp" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ZBIBESi" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AudioType" type="service_closure" id="App\Form\AudioType"/>
@@ -6073,6 +6118,7 @@
         <argument key="App\Form\MusicalType" type="service_closure" id="App\Form\MusicalType"/>
         <argument key="App\Form\ParticipanteType" type="service_closure" id="App\Form\ParticipanteType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
+        <argument key="App\Form\UserType" type="service_closure" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -6187,6 +6233,12 @@
     <service id=".service_locator.mx0UMmY.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\UserController"/>
+      <argument>App\Controller\UserController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
@@ -6355,12 +6407,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.ttDXVrL"/>
+      <argument type="service" id=".service_locator.gSTNmPn"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.ttDXVrL"/>
+      <argument type="service" id=".service_locator.gSTNmPn"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -6428,6 +6480,8 @@
     <service id=".errored..service_locator.P_nCRXz.App\Entity\Musical" class="App\Entity\Musical"/>
     <service id=".errored..service_locator.fh89mcT.App\Entity\Participante" class="App\Entity\Participante"/>
     <service id=".errored..service_locator.pPSJa7S.App\Entity\Participante" class="App\Entity\Participante"/>
+    <service id=".errored..service_locator.4T4EJFR.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.9uW928t.App\Entity\User" class="App\Entity\User"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -7203,7 +7257,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ttDXVrL"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.gSTNmPn"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7220,9 +7274,9 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.ng5GItH" alias=".service_locator.pPSJa7S"/>
     <service id=".service_locator.j_7xucR" alias=".service_locator.59.oRhZ"/>
-    <service id=".service_locator.WLB6Yvg" alias=".service_locator.ttDXVrL"/>
+    <service id=".service_locator.hroyoAM" alias=".service_locator.gSTNmPn"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
-    <service id=".service_locator.X29_eO7" alias=".service_locator.HLKdpRp"/>
+    <service id=".service_locator.XU93n6A" alias=".service_locator.ZBIBESi"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
     <service id=".service_locator.0ghLsew" alias=".service_locator.mx0UMmY"/>
     <service id="api_platform.metadata.property.metadata_factory.property_info.inner" alias="api_platform.metadata.property.metadata_factory.xml"/>
@@ -7297,6 +7351,9 @@
     <service id=".service_locator.LpoCuEq" alias=".service_locator.pPSJa7S"/>
     <service id=".service_locator.UpTyVBf" alias=".service_locator.59.oRhZ"/>
     <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>
+    <service id=".service_locator.HO7.gFw" alias=".service_locator.Q1F27w5"/>
+    <service id=".service_locator.Zp0NSXM" alias=".service_locator.4T4EJFR"/>
+    <service id=".service_locator.S89QQxH" alias=".service_locator.9uW928t"/>
     <service id=".service_locator.JmHnXRx" alias=".service_locator.mx0UMmY"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>
     <service id=".service_locator.aa1PbBb" alias=".service_locator.nLgZj7R"/>

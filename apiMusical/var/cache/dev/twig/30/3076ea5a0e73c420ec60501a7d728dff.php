@@ -26,14 +26,14 @@ class __TwigTemplate_75c08387d884634a41f62c25319eb3f5 extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
-            'body' => [$this, 'block_body'],
+            'contenido' => [$this, 'block_contenido'],
         ];
     }
 
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -42,7 +42,7 @@ class __TwigTemplate_75c08387d884634a41f62c25319eb3f5 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "registration/register.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "registration/register.html.twig", 1);
+        $this->parent = $this->loadTemplate("layout.html.twig", "registration/register.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -63,14 +63,14 @@ class __TwigTemplate_75c08387d884634a41f62c25319eb3f5 extends Template
     }
 
     // line 5
-    public function block_body($context, array $blocks = [])
+    public function block_contenido($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "contenido"));
 
         // line 6
-        echo "    <h1>Register</h1>
+        echo "    <h1>Registro de un nuevo usuario</h1>
 
     ";
         // line 8
@@ -90,7 +90,7 @@ class __TwigTemplate_75c08387d884634a41f62c25319eb3f5 extends Template
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 13, $this->source); })()), "agreeTerms", [], "any", false, false, false, 13), 'row');
         echo "
 
-        <button type=\"submit\" class=\"btn\">Register</button>
+        <button type=\"submit\" class=\"btn\">Registrar</button>
     ";
         // line 16
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 16, $this->source); })()), 'form_end');
@@ -118,12 +118,12 @@ class __TwigTemplate_75c08387d884634a41f62c25319eb3f5 extends Template
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'layout.html.twig' %}
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
-    <h1>Register</h1>
+{% block contenido %}
+    <h1>Registro de un nuevo usuario</h1>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.username) }}
@@ -132,7 +132,7 @@ class __TwigTemplate_75c08387d884634a41f62c25319eb3f5 extends Template
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type=\"submit\" class=\"btn\">Register</button>
+        <button type=\"submit\" class=\"btn\">Registrar</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
 ", "registration/register.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/registration/register.html.twig");

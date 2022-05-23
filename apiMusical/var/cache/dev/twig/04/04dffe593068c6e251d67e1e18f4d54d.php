@@ -97,13 +97,13 @@ class __TwigTemplate_b1989c1c683938016cab36b60759a28c extends Template
 \t\t\t\t<div class=\"col-md-7 col-lg-5\">
 \t\t\t\t\t<div class=\"login-wrap p-4 p-md-5\" style=\"box-shadow:0px 10px 34px -15px rgba(0, 0, 0, 0.24)\">
 \t\t      \t<div class=\"icon d-flex align-items-center justify-content-center\" style=\"width: 80px;
-color: white;
-height: 80px;
-background: #866ec7;
-border-radius: 50%;
-font-size: 30px;
-margin: 0 auto;
-margin-bottom: 10px;\">
+                color: white;
+                height: 80px;
+                background: #866ec7;
+                border-radius: 50%;
+                font-size: 30px;
+                margin: 0 auto;
+                margin-bottom: 10px;\">
 \t\t      \t\t<span class=\"fa fa-user-o\"></span>
 \t\t      \t</div>
 \t\t      \t<h3 class=\"text-center mb-4\">Iniciar Sesión</h3>
@@ -215,13 +215,13 @@ margin-bottom: 10px;\">
 \t\t\t\t<div class=\"col-md-7 col-lg-5\">
 \t\t\t\t\t<div class=\"login-wrap p-4 p-md-5\" style=\"box-shadow:0px 10px 34px -15px rgba(0, 0, 0, 0.24)\">
 \t\t      \t<div class=\"icon d-flex align-items-center justify-content-center\" style=\"width: 80px;
-color: white;
-height: 80px;
-background: #866ec7;
-border-radius: 50%;
-font-size: 30px;
-margin: 0 auto;
-margin-bottom: 10px;\">
+                color: white;
+                height: 80px;
+                background: #866ec7;
+                border-radius: 50%;
+                font-size: 30px;
+                margin: 0 auto;
+                margin-bottom: 10px;\">
 \t\t      \t\t<span class=\"fa fa-user-o\"></span>
 \t\t      \t</div>
 \t\t      \t<h3 class=\"text-center mb-4\">Iniciar Sesión</h3>
