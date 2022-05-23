@@ -26,6 +26,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
+    public function __construct(){
+        $this->roles = ['ROLE_ADMIN'];
+    }
+
     public function getId(): ?int
     {
         return $this->id;
