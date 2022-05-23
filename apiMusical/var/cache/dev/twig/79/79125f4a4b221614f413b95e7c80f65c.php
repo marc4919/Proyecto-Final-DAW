@@ -44,7 +44,7 @@ class __TwigTemplate_e1c6ed4e8654eefba91c58be79bbc70d extends Template
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["audio"]) || array_key_exists("audio", $context) ? $context["audio"] : (function () { throw new RuntimeError('Variable "audio" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">Eliminar</button>
 </form>
 ";
         
@@ -71,7 +71,7 @@ class __TwigTemplate_e1c6ed4e8654eefba91c58be79bbc70d extends Template
     {
         return new Source("<form method=\"post\" action=\"{{ path('app_audio_delete', {'id': audio.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ audio.id) }}\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">Eliminar</button>
 </form>
 ", "audio/_delete_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/audio/_delete_form.html.twig");
     }

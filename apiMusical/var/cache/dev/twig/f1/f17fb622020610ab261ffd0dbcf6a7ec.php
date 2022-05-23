@@ -103,14 +103,14 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
         echo "\"></img></td>
             </tr>
             <tr>
-                <th>Anyo</th>
+                <th>Año</th>
                 <td>";
         // line 28
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 28, $this->source); })()), "Anyo", [], "any", false, false, false, 28), "html", null, true);
         echo "</td>
             </tr>
             <tr>
-                <th>Video</th>
+                <th>Vídeo</th>
                 <td>";
         // line 32
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 32, $this->source); })()), "Video", [], "any", false, false, false, 32), "html", null, true);
@@ -122,12 +122,12 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
     <a href=\"";
         // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_index");
-        echo "\">back to list</a>
+        echo "\">Volver a la lista</a>
 
     <a href=\"";
         // line 39
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 39, $this->source); })()), "id", [], "any", false, false, false, 39)]), "html", null, true);
-        echo "\">edit</a>
+        echo "\">Editar</a>
 
     ";
         // line 41
@@ -182,19 +182,19 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
                 <td><img src=\"{{ musical.Cartel }}\"></img></td>
             </tr>
             <tr>
-                <th>Anyo</th>
+                <th>Año</th>
                 <td>{{ musical.Anyo }}</td>
             </tr>
             <tr>
-                <th>Video</th>
+                <th>Vídeo</th>
                 <td>{{ musical.Video }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_musical_index') }}\">back to list</a>
+    <a href=\"{{ path('app_musical_index') }}\">Volver a la lista</a>
 
-    <a href=\"{{ path('app_musical_edit', {'id': musical.id}) }}\">edit</a>
+    <a href=\"{{ path('app_musical_edit', {'id': musical.id}) }}\">Editar</a>
 
     {{ include('musical/_delete_form.html.twig') }}
 {% endblock %}

@@ -119,13 +119,13 @@ class __TwigTemplate_b1989c1c683938016cab36b60759a28c extends Template
         }
         // line 47
         echo "\t\t      \t\t<div class=\"form-group\">
-\t\t      \t\t\t<input type=\"text\" class=\"form-control rounded-left\" placeholder=\"Username\" value=\"";
+\t\t      \t\t\t<input style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" type=\"text\" class=\"form-control rounded-left\" placeholder=\"Username\" value=\"";
         // line 48
         echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 48, $this->source); })()), "html", null, true);
         echo "\" name=\"username\" id=\"inputUsername\" requautocomplete=\"username\" autocomplete=\"username\" required autofocus>
 \t\t      \t\t</div>
 \t            <div class=\"form-group d-flex\">
-\t              <input type=\"password\" class=\"form-control rounded-left\" placeholder=\"Password\" name=\"password\" id=\"inputPassword\" autocomplete=\"current-password\" required>
+\t              <input style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" type=\"password\" class=\"form-control rounded-left\" placeholder=\"Password\" name=\"password\" id=\"inputPassword\" autocomplete=\"current-password\" required>
 \t            </div>
                 <input type=\"hidden\" name=\"_csrf_token\"
            value=\"";
@@ -230,10 +230,10 @@ class __TwigTemplate_b1989c1c683938016cab36b60759a28c extends Template
         <div class=\"alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 \t\t      \t\t<div class=\"form-group\">
-\t\t      \t\t\t<input type=\"text\" class=\"form-control rounded-left\" placeholder=\"Username\" value=\"{{ last_username }}\" name=\"username\" id=\"inputUsername\" requautocomplete=\"username\" autocomplete=\"username\" required autofocus>
+\t\t      \t\t\t<input style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" type=\"text\" class=\"form-control rounded-left\" placeholder=\"Username\" value=\"{{ last_username }}\" name=\"username\" id=\"inputUsername\" requautocomplete=\"username\" autocomplete=\"username\" required autofocus>
 \t\t      \t\t</div>
 \t            <div class=\"form-group d-flex\">
-\t              <input type=\"password\" class=\"form-control rounded-left\" placeholder=\"Password\" name=\"password\" id=\"inputPassword\" autocomplete=\"current-password\" required>
+\t              <input style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" type=\"password\" class=\"form-control rounded-left\" placeholder=\"Password\" name=\"password\" id=\"inputPassword\" autocomplete=\"current-password\" required>
 \t            </div>
                 <input type=\"hidden\" name=\"_csrf_token\"
            value=\"{{ csrf_token('authenticate') }}\"

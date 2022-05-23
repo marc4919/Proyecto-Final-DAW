@@ -84,7 +84,7 @@ class __TwigTemplate_2db04752c1009b2a7829363a49aec512 extends Template
 \t\t<link rel=\"stylesheet\" href=\"../../css/style.css\">
 \t\t<style>
 \t\t.form-control{
-\t\t\tborder: 0.1em grey solid
+\t\t\tborder: 1px solid rgba(0, 0, 0, 0.1)
 \t\t}
 \t\t</style>
   </head>
@@ -211,7 +211,7 @@ class __TwigTemplate_2db04752c1009b2a7829363a49aec512 extends Template
 \t\t<link rel=\"stylesheet\" href=\"../../css/style.css\">
 \t\t<style>
 \t\t.form-control{
-\t\t\tborder: 0.1em grey solid
+\t\t\tborder: 1px solid rgba(0, 0, 0, 0.1)
 \t\t}
 \t\t</style>
   </head>
