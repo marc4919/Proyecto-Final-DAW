@@ -18,6 +18,7 @@
       <parameter key="TwigExtraBundle">Twig\Extra\TwigExtraBundle\TwigExtraBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="DropzoneBundle">Symfony\UX\Dropzone\DropzoneBundle</parameter>
+      <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
       <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
     </parameter>
@@ -57,6 +58,10 @@
       <parameter key="DropzoneBundle" type="collection">
         <parameter key="path">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/vendor/symfony/ux-dropzone</parameter>
         <parameter key="namespace">Symfony\UX\Dropzone</parameter>
+      </parameter>
+      <parameter key="KnpSnappyBundle" type="collection">
+        <parameter key="path">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/vendor/knplabs/knp-snappy-bundle/src</parameter>
+        <parameter key="namespace">Knp\Bundle\SnappyBundle</parameter>
       </parameter>
       <parameter key="WebpackEncoreBundle" type="collection">
         <parameter key="path">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/vendor/symfony/webpack-encore-bundle/src</parameter>
@@ -320,6 +325,12 @@
       <parameter>bootstrap_4_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates</parameter>
+    <parameter key="knp_snappy.pdf.binary">/usr/local/bin/wkhtmltopdf</parameter>
+    <parameter key="knp_snappy.pdf.options" type="collection"/>
+    <parameter key="knp_snappy.pdf.env" type="collection"/>
+    <parameter key="knp_snappy.image.binary">/usr/local/bin/wkhtmltoimage</parameter>
+    <parameter key="knp_snappy.image.options" type="collection"/>
+    <parameter key="knp_snappy.image.env" type="collection"/>
     <parameter key="security.role_hierarchy.roles" type="collection"/>
     <parameter key="security.access.denied_url">null</parameter>
     <parameter key="security.authentication.manager.erase_credentials">true</parameter>
@@ -4632,6 +4643,24 @@
     <service id="form.dropzone" class="Symfony\UX\Dropzone\Form\DropzoneType">
       <tag name="form.type"/>
     </service>
+    <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf" public="true">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>/usr/local/bin/wkhtmltopdf</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="knp_snappy.image" class="Knp\Snappy\Image" public="true">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>/usr/local/bin/wkhtmltoimage</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
     <service id=".1_ServiceLocator~P_qco5v" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6007,6 +6036,13 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
+    <service id=".service_locator.orA08eh" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="knpSnappyPdf" type="service_closure" id="knp_snappy.pdf"/>
+      </argument>
+    </service>
     <service id=".service_locator.fh89mcT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6054,7 +6090,7 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.gSTNmPn" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ENRlDRm" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AudioController::delete" type="service_closure" id=".service_locator.aLucqk5"/>
@@ -6076,6 +6112,7 @@
         <argument key="App\Controller\ParticipanteController::edit" type="service_closure" id=".service_locator.pPSJa7S"/>
         <argument key="App\Controller\ParticipanteController::index" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\ParticipanteController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ParticipanteController::pdfAction" type="service_closure" id=".service_locator.orA08eh"/>
         <argument key="App\Controller\ParticipanteController::show" type="service_closure" id=".service_locator.fh89mcT"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.59.oRhZ"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
@@ -6109,6 +6146,7 @@
         <argument key="App\Controller\ParticipanteController:edit" type="service_closure" id=".service_locator.pPSJa7S"/>
         <argument key="App\Controller\ParticipanteController:index" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\ParticipanteController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ParticipanteController:pdfAction" type="service_closure" id=".service_locator.orA08eh"/>
         <argument key="App\Controller\ParticipanteController:show" type="service_closure" id=".service_locator.fh89mcT"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.59.oRhZ"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
@@ -6478,12 +6516,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.gSTNmPn"/>
+      <argument type="service" id=".service_locator.ENRlDRm"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.gSTNmPn"/>
+      <argument type="service" id=".service_locator.ENRlDRm"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -7289,6 +7327,8 @@
     <service id="ApiPlatform\Core\Security\ResourceAccessCheckerInterface" alias="api_platform.security.resource_access_checker"/>
     <service id="Twig_Environment" alias="twig"/>
     <service id="Twig\Environment" alias="twig"/>
+    <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf"/>
+    <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface" alias="security.authorization_checker"/>
@@ -7328,7 +7368,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.gSTNmPn"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.ENRlDRm"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7345,7 +7385,7 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.ng5GItH" alias=".service_locator.pPSJa7S"/>
     <service id=".service_locator.j_7xucR" alias=".service_locator.59.oRhZ"/>
-    <service id=".service_locator.hroyoAM" alias=".service_locator.gSTNmPn"/>
+    <service id=".service_locator.2584mLL" alias=".service_locator.ENRlDRm"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.XU93n6A" alias=".service_locator.ZBIBESi"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
@@ -7418,6 +7458,7 @@
     <service id=".service_locator.EBfelc7" alias=".service_locator..oD9six"/>
     <service id=".service_locator.ctBYXtD" alias=".service_locator.P_nCRXz"/>
     <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
+    <service id=".service_locator.GicSScr" alias=".service_locator.orA08eh"/>
     <service id=".service_locator.m0rLMAF" alias=".service_locator.fh89mcT"/>
     <service id=".service_locator.LpoCuEq" alias=".service_locator.pPSJa7S"/>
     <service id=".service_locator.UpTyVBf" alias=".service_locator.59.oRhZ"/>

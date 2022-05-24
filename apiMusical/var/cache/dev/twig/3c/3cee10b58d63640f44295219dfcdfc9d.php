@@ -56,7 +56,7 @@ class __TwigTemplate_bacefa83359751a91487418b7d014069 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Edit Audio";
+        echo "Editar Audio";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -70,7 +70,7 @@ class __TwigTemplate_bacefa83359751a91487418b7d014069 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "contenido"));
 
         // line 6
-        echo "    <h1>Edit Audio</h1>
+        echo "    <h1>Editar Audio</h1>
 
     ";
         // line 8
@@ -80,7 +80,7 @@ class __TwigTemplate_bacefa83359751a91487418b7d014069 extends Template
     <a href=\"";
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_audio_index");
-        echo "\">back to list</a>
+        echo "\">Volver a la lista</a>
 
     ";
         // line 12
@@ -111,14 +111,14 @@ class __TwigTemplate_bacefa83359751a91487418b7d014069 extends Template
     {
         return new Source("{% extends 'layout.html.twig' %}
 
-{% block title %}Edit Audio{% endblock %}
+{% block title %}Editar Audio{% endblock %}
 
 {% block contenido %}
-    <h1>Edit Audio</h1>
+    <h1>Editar Audio</h1>
 
     {{ include('audio/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href=\"{{ path('app_audio_index') }}\">back to list</a>
+    <a href=\"{{ path('app_audio_index') }}\">Volver a la lista</a>
 
     {{ include('audio/_delete_form.html.twig') }}
 {% endblock %}

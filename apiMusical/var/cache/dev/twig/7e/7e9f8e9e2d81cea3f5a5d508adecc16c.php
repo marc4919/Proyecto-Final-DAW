@@ -70,7 +70,7 @@ class __TwigTemplate_d60dd6f245e03357e3e2ab4cd55f5ad2 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "contenido"));
 
         // line 6
-        echo "    <h1>Edit Musical</h1>
+        echo "    <h1>Editar Musical</h1>
 
     ";
         // line 8
@@ -80,7 +80,7 @@ class __TwigTemplate_d60dd6f245e03357e3e2ab4cd55f5ad2 extends Template
     <a href=\"";
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_index");
-        echo "\">back to list</a>
+        echo "\">Volver a la lista</a>
 
     ";
         // line 12
@@ -114,11 +114,11 @@ class __TwigTemplate_d60dd6f245e03357e3e2ab4cd55f5ad2 extends Template
 {% block title %}Edit Musical{% endblock %}
 
 {% block contenido %}
-    <h1>Edit Musical</h1>
+    <h1>Editar Musical</h1>
 
     {{ include('musical/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href=\"{{ path('app_musical_index') }}\">back to list</a>
+    <a href=\"{{ path('app_musical_index') }}\">Volver a la lista</a>
 
     {{ include('musical/_delete_form.html.twig') }}
 {% endblock %}

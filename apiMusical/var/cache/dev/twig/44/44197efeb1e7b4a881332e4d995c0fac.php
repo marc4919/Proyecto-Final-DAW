@@ -70,7 +70,7 @@ class __TwigTemplate_bdb1e1d7b55a5b30ac265414d1ab474f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "contenido"));
 
         // line 6
-        echo "    <h1>Edit Imagen</h1>
+        echo "    <h1>Editar Imagen</h1>
 
     ";
         // line 8
@@ -80,7 +80,7 @@ class __TwigTemplate_bdb1e1d7b55a5b30ac265414d1ab474f extends Template
     <a href=\"";
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_imagen_index");
-        echo "\">back to list</a>
+        echo "\">Volver a la lista</a>
 
     ";
         // line 12
@@ -114,11 +114,11 @@ class __TwigTemplate_bdb1e1d7b55a5b30ac265414d1ab474f extends Template
 {% block title %}Edit Imagen{% endblock %}
 
 {% block contenido %}
-    <h1>Edit Imagen</h1>
+    <h1>Editar Imagen</h1>
 
     {{ include('imagen/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href=\"{{ path('app_imagen_index') }}\">back to list</a>
+    <a href=\"{{ path('app_imagen_index') }}\">Volver a la lista</a>
 
     {{ include('imagen/_delete_form.html.twig') }}
 {% endblock %}

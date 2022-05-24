@@ -16,6 +16,7 @@ return [
         '/musical' => [[['_route' => 'app_musical_index', '_controller' => 'App\\Controller\\MusicalController::index'], null, ['GET' => 0], null, true, false, null]],
         '/musical/new' => [[['_route' => 'app_musical_new', '_controller' => 'App\\Controller\\MusicalController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/participante' => [[['_route' => 'app_participante_index', '_controller' => 'App\\Controller\\ParticipanteController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/participante/imprimir' => [[['_route' => 'app_participante_pdfAction', '_controller' => 'App\\Controller\\ParticipanteController::pdfAction'], null, ['GET' => 0], null, false, false, null]],
         '/participante/new' => [[['_route' => 'app_participante_new', '_controller' => 'App\\Controller\\ParticipanteController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],

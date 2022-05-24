@@ -129,6 +129,19 @@ class __TwigTemplate_f0f323dcf569fe362e99c02c205e413f extends Template
         // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_new");
         echo "\">Añadir Participante</a>
+    </br>
+    <div class=\"container-fluid h-100\"> 
+    \t\t<div class=\"row w-100 align-items-center\">
+    \t\t\t<div class=\"col text-center\">
+    \t\t\t\t<a href=\"";
+        // line 39
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_pdfAction");
+        echo "\"><button class=\"btn btn-primary regular-button\"> Imprimir </button></a>
+    \t\t\t</div>\t
+    \t\t</div>
+    
+    
+    \t</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -147,7 +160,7 @@ class __TwigTemplate_f0f323dcf569fe362e99c02c205e413f extends Template
 
     public function getDebugInfo()
     {
-        return array (  130 => 34,  125 => 31,  116 => 27,  107 => 23,  103 => 22,  98 => 20,  94 => 19,  91 => 18,  86 => 17,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  138 => 39,  130 => 34,  125 => 31,  116 => 27,  107 => 23,  103 => 22,  98 => 20,  94 => 19,  91 => 18,  86 => 17,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -186,6 +199,16 @@ class __TwigTemplate_f0f323dcf569fe362e99c02c205e413f extends Template
     </table>
 
     <a href=\"{{ path('app_participante_new') }}\">Añadir Participante</a>
+    </br>
+    <div class=\"container-fluid h-100\"> 
+    \t\t<div class=\"row w-100 align-items-center\">
+    \t\t\t<div class=\"col text-center\">
+    \t\t\t\t<a href=\"{{ path('app_participante_pdfAction') }}\"><button class=\"btn btn-primary regular-button\"> Imprimir </button></a>
+    \t\t\t</div>\t
+    \t\t</div>
+    
+    
+    \t</div>
 {% endblock %}
 ", "participante/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/index.html.twig");
     }

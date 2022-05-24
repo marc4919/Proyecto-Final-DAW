@@ -34,9 +34,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_musical_index') }}">Volver a la lista</a>
-
+    <a href="{{ path('app_musical_index') }}">Volver a la lista - </a>
+    
     <a href="{{ path('app_musical_edit', {'id': musical.id}) }}">Editar</a>
-
     {{ include('musical/_delete_form.html.twig') }}
 {% endblock %}

@@ -70,7 +70,7 @@ class __TwigTemplate_8420890646ed7a1469bb71089f8603b3 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "contenido"));
 
         // line 6
-        echo "    <h1>Create new Participante</h1>
+        echo "    <h1>Crear Nuevo Participante</h1>
 
     ";
         // line 8
@@ -80,7 +80,7 @@ class __TwigTemplate_8420890646ed7a1469bb71089f8603b3 extends Template
     <a href=\"";
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_index");
-        echo "\">back to list</a>
+        echo "\">Volver a la lista</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -109,11 +109,11 @@ class __TwigTemplate_8420890646ed7a1469bb71089f8603b3 extends Template
 {% block title %}New Participante{% endblock %}
 
 {% block contenido %}
-    <h1>Create new Participante</h1>
+    <h1>Crear Nuevo Participante</h1>
 
     {{ include('participante/_form.html.twig') }}
 
-    <a href=\"{{ path('app_participante_index') }}\">back to list</a>
+    <a href=\"{{ path('app_participante_index') }}\">Volver a la lista</a>
 {% endblock %}
 ", "participante/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/new.html.twig");
     }
