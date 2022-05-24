@@ -69,6 +69,7 @@ class ParticipanteController extends AbstractController
     {
         return $this->render('participante/show.html.twig', [
             'participante' => $participante,
+            'musicals' => $participante->getMusicals()
         ]);
     }
 

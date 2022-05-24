@@ -70,16 +70,39 @@ class MusicalController extends AbstractController
     {
         return $this->render('musical/show.html.twig', [
             'musical' => $musical,
+            'participantes' => $musical->getParticipantes()
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_musical_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Musical $musical, MusicalRepository $musicalRepository): Response
+    public function edit(Request $request, Musical $musical, MusicalRepository $musicalRepository,  SluggerInterface $slugger): Response
     {
         $form = $this->createForm(MusicalType::class, $musical);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $brochureFile = $form->get('Cartel')->getData();
+            if ($brochureFile) {
+                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $brochureFile->move(
+                        $this->getParameter('carteles_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    throw new \Exception(message: 'Ha ocurrido un error :(');
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $musical->setCartel($newFilename);
+            }
             $musicalRepository->add($musical, true);
 
             return $this->redirectToRoute('app_musical_index', [], Response::HTTP_SEE_OTHER);

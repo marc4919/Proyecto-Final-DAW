@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 //use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\UX\Dropzone\Form\DropzoneType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AudioType extends AbstractType
@@ -15,7 +16,12 @@ class AudioType extends AbstractType
     {
         $builder
             ->add('Descripcion')
-            ->add('Tipo')
+            ->add('Tipo',  ChoiceType::class, [
+                'choices'  => [
+                    'Cancion' => 'Cancion',
+                    'Karaoke' => 'Karaoke'
+                ],
+            ])
             ->add('Enlace', DropzoneType::class, array('data_class' => null , 'attr' => array(
                 'placeholder' => 'Arrastra aquí o Seleciona'
             )))

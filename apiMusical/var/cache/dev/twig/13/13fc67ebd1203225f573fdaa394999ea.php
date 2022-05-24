@@ -115,10 +115,10 @@ class __TwigTemplate_06c16fe53984b9aa077a21984ae5e5aa extends Template
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 31, $this->source); })()), "id", [], "any", false, false, false, 31)]), "html", null, true);
         echo "\">edit</a>-->
 
-    ";
+    <!--";
         // line 33
         echo twig_include($this->env, $context, "user/_delete_form.html.twig");
-        echo "
+        echo "-->
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -174,7 +174,7 @@ class __TwigTemplate_06c16fe53984b9aa077a21984ae5e5aa extends Template
 
     <!--<a href=\"{{ path('app_user_edit', {'id': user.id}) }}\">edit</a>-->
 
-    {{ include('user/_delete_form.html.twig') }}
+    <!--{{ include('user/_delete_form.html.twig') }}-->
 {% endblock %}
 ", "user/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/user/show.html.twig");
     }

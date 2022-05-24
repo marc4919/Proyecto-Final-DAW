@@ -8,10 +8,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ musical.id }}</td>
-            </tr>
-            <tr>
                 <th>Nombre</th>
                 <td>{{ musical.Nombre }}</td>
             </tr>
@@ -21,7 +17,7 @@
             </tr>
             <tr>
                 <th>Cartel</th>
-                <td><img src="{{ musical.Cartel }}"></img></td>
+                <td><img style="width:300px" src="/uploads/carteles/{{ musical.Cartel }}"></img></td>
             </tr>
             <tr>
                 <th>Año</th>
@@ -33,9 +29,34 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('app_musical_index') }}">Volver a la lista - </a>
+        <a href="{{ path('app_musical_index') }}">Volver a la lista - </a>
     
-    <a href="{{ path('app_musical_edit', {'id': musical.id}) }}">Editar</a>
+    <a href="{{ path('app_musical_edit', {'id': musical.id}) }}">Editar - </a>
+<a href="#lista" data-toggle="collapse" aria-expanded="false">Mostrar Participantes</a>
+<br>
+    <table class="table collapse" id="lista">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participante in participantes %}
+            <tr>
+                <td>{{ participante.Nombre }}</td>
+                <td>{{ participante.Apellidos }}</td>
+                <td>
+                    <a href="{{ path('app_participante_show', {'id': participante.id}) }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"/></svg></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
     {{ include('musical/_delete_form.html.twig') }}
 {% endblock %}

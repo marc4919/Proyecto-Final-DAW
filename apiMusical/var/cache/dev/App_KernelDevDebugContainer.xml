@@ -577,6 +577,7 @@
         <argument key="webpack_encore.entrypoint_lookup[_default]" type="service" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
         <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.security_token_verifier" type="service" id="cache.security_token_verifier" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
         <argument key="cache.app" type="collection">
@@ -650,6 +651,9 @@
           <argument>setToken</argument>
         </argument>
         <argument key="cache.security_expression_language" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.security_token_verifier" type="collection">
           <argument>reset</argument>
         </argument>
       </argument>
@@ -795,6 +799,7 @@
         <argument>api_platform.cache.metadata.property</argument>
         <argument>cache.webpack_encore</argument>
         <argument>cache.security_expression_language</argument>
+        <argument>cache.security_token_verifier</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:clear</argument>
@@ -835,6 +840,7 @@
         <argument>api_platform.cache.metadata.property</argument>
         <argument>cache.webpack_encore</argument>
         <argument>cache.security_expression_language</argument>
+        <argument>cache.security_token_verifier</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:delete</argument>
@@ -863,6 +869,7 @@
         <argument>api_platform.cache.metadata.property</argument>
         <argument>cache.webpack_encore</argument>
         <argument>cache.security_expression_language</argument>
+        <argument>cache.security_token_verifier</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:list</argument>
@@ -1322,6 +1329,7 @@
         <argument key="api_platform.cache.metadata.property" type="service" id="api_platform.cache.metadata.property" on-invalid="ignore_uninitialized"/>
         <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.security_token_verifier" type="service" id="cache.security_token_verifier" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="cache.global_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
@@ -1343,6 +1351,7 @@
         <argument key="api_platform.cache.metadata.property" type="service" id="api_platform.cache.metadata.property" on-invalid="ignore_uninitialized"/>
         <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.security_token_verifier" type="service" id="cache.security_token_verifier" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="assets.packages" class="Symfony\Component\Asset\Packages">
@@ -5290,6 +5299,7 @@
       <argument type="collection">
         <argument key="main" type="collection">
           <argument type="service" id="App\Security\LoginauthAuthenticator"/>
+          <argument type="service" id="security.authenticator.remember_me.main"/>
         </argument>
       </argument>
       <argument>true</argument>
@@ -5341,6 +5351,7 @@
       <argument>null</argument>
       <argument>null</argument>
       <argument type="collection">
+        <argument>remember_me</argument>
         <argument>App\Security\LoginauthAuthenticator</argument>
       </argument>
       <argument>null</argument>
@@ -5380,6 +5391,46 @@
         <argument type="collection">
           <argument type="service_closure" id="security.logout.listener.session.main"/>
           <argument>onLogout</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>Symfony\Component\Security\Http\Event\LoginSuccessEvent</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="security.listener.check_remember_me_conditions.main"/>
+          <argument>onSuccessfulLogin</argument>
+        </argument>
+        <argument>-32</argument>
+      </call>
+      <call method="addListener">
+        <argument>Symfony\Component\Security\Http\Event\LoginSuccessEvent</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="security.listener.remember_me.main"/>
+          <argument>onSuccessfulLogin</argument>
+        </argument>
+        <argument>-64</argument>
+      </call>
+      <call method="addListener">
+        <argument>Symfony\Component\Security\Http\Event\LoginFailureEvent</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="security.listener.remember_me.main"/>
+          <argument>clearCookie</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>Symfony\Component\Security\Http\Event\LogoutEvent</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="security.listener.remember_me.main"/>
+          <argument>clearCookie</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>Symfony\Component\Security\Http\Event\TokenDeauthenticatedEvent</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="security.listener.remember_me.main"/>
+          <argument>clearCookie</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -5442,6 +5493,7 @@
     </service>
     <service id="security.context_listener.0" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse"/>
+      <tag name="security.remember_me_aware" id="main" provider="none"/>
       <tag name="container.hot_path"/>
       <argument type="service" id="security.untracked_token_storage"/>
       <argument type="iterator">
@@ -5478,10 +5530,121 @@
     <service id="security.logout.listener.session.main" class="Symfony\Component\Security\Http\EventListener\SessionLogoutListener">
       <tag name="kernel.event_subscriber" dispatcher="security.event_dispatcher.main"/>
     </service>
+    <service id="security.authenticator.remember_me_signature_hasher" class="Symfony\Component\Security\Core\Signature\SignatureHasher">
+      <argument type="service" id="property_accessor"/>
+      <argument type="abstract">signature properties</argument>
+      <argument>%env(APP_SECRET)%</argument>
+      <argument>null</argument>
+      <argument>null</argument>
+    </service>
+    <service id="security.authenticator.signature_remember_me_handler" class="Symfony\Component\Security\Http\RememberMe\SignatureRememberMeHandler" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="abstract">signature hasher</argument>
+      <argument type="abstract">user provider</argument>
+      <argument type="service" id="request_stack"/>
+      <argument type="abstract">options</argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="security.authenticator.persistent_remember_me_handler" class="Symfony\Component\Security\Http\RememberMe\PersistentRememberMeHandler" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="abstract">token provider</argument>
+      <argument>%env(APP_SECRET)%</argument>
+      <argument type="abstract">user provider</argument>
+      <argument type="service" id="request_stack"/>
+      <argument type="abstract">options</argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+      <argument type="abstract">token verifier</argument>
+    </service>
+    <service id="security.authenticator.firewall_aware_remember_me_handler" class="Symfony\Bundle\SecurityBundle\RememberMe\FirewallAwareRememberMeHandler">
+      <argument type="service" id="security.firewall.map"/>
+      <argument type="service" id=".service_locator.XgpoQM9"/>
+      <argument type="service" id="request_stack"/>
+    </service>
+    <service id="security.listener.check_remember_me_conditions" class="Symfony\Component\Security\Http\EventListener\CheckRememberMeConditionsListener" abstract="true">
+      <argument type="abstract">options</argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="security.listener.remember_me" class="Symfony\Component\Security\Http\EventListener\RememberMeListener" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="abstract">remember me handler</argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="security.authenticator.remember_me" class="Symfony\Component\Security\Http\Authenticator\RememberMeAuthenticator" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="abstract">remember me handler</argument>
+      <argument>%env(APP_SECRET)%</argument>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="abstract">options</argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="cache.security_token_verifier" class="Symfony\Component\Cache\Adapter\AdapterInterface">
+      <tag name="cache.pool"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument>k3TlBSEMTj</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/var/cache/dev/pools/system</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
+    <service id="security.authenticator.remember_me_signature_hasher.main" class="Symfony\Component\Security\Core\Signature\SignatureHasher">
+      <argument type="service" id="property_accessor"/>
+      <argument type="collection">
+        <argument>password</argument>
+      </argument>
+      <argument>%env(APP_SECRET)%</argument>
+      <argument>null</argument>
+      <argument>null</argument>
+    </service>
+    <service id="security.authenticator.remember_me_handler.main" class="Symfony\Component\Security\Http\RememberMe\SignatureRememberMeHandler">
+      <tag name="security.remember_me_handler" firewall="main"/>
+      <argument type="service" id="security.authenticator.remember_me_signature_hasher.main"/>
+      <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
+      <argument type="service" id="request_stack"/>
+      <argument type="collection">
+        <argument key="secret">%env(APP_SECRET)%</argument>
+        <argument key="lifetime">604800</argument>
+        <argument key="user_providers" type="collection"/>
+        <argument key="catch_exceptions">true</argument>
+        <argument key="signature_properties" type="collection">
+          <argument>password</argument>
+        </argument>
+        <argument key="name">REMEMBERME</argument>
+        <argument key="path">/</argument>
+        <argument key="domain">null</argument>
+        <argument key="secure">null</argument>
+        <argument key="httponly">true</argument>
+        <argument key="samesite">lax</argument>
+        <argument key="always_remember_me">false</argument>
+        <argument key="remember_me_parameter">_remember_me</argument>
+      </argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="security.listener.check_remember_me_conditions.main" class="Symfony\Component\Security\Http\EventListener\CheckRememberMeConditionsListener">
+      <tag name="kernel.event_subscriber" dispatcher="security.event_dispatcher.main"/>
+      <argument type="collection">
+        <argument key="always_remember_me">false</argument>
+        <argument key="remember_me_parameter">_remember_me</argument>
+      </argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="security.listener.remember_me.main" class="Symfony\Component\Security\Http\EventListener\RememberMeListener">
+      <tag name="kernel.event_subscriber" dispatcher="security.event_dispatcher.main"/>
+      <argument type="service" id="security.authenticator.remember_me_handler.main"/>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="security.authenticator.remember_me.main" class="Symfony\Component\Security\Http\Authenticator\RememberMeAuthenticator">
+      <argument type="service" id="security.authenticator.remember_me_handler.main"/>
+      <argument>%env(APP_SECRET)%</argument>
+      <argument type="service" id="security.token_storage"/>
+      <argument>REMEMBERME</argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
     <service id="security.authenticator.manager.main" class="Symfony\Component\Security\Http\Authentication\AuthenticatorManager">
       <tag name="monolog.logger" channel="security"/>
       <argument type="collection">
         <argument type="service" id="App\Security\LoginauthAuthenticator"/>
+        <argument type="service" id="security.authenticator.remember_me.main"/>
       </argument>
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="security.event_dispatcher.main"/>
@@ -5971,6 +6134,14 @@
         <argument key="audio" type="service_closure" id=".errored..service_locator.F04_Ow9.App\Entity\Audio"/>
       </argument>
     </service>
+    <service id=".service_locator.ktGAGxB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="audio" type="service_closure" id=".errored..service_locator.ktGAGxB.App\Entity\Audio"/>
+        <argument key="audioRepository" type="service_closure" id="App\Repository\AudioRepository"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
+      </argument>
+    </service>
     <service id=".service_locator.aLucqk5" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5997,6 +6168,14 @@
         <argument key="imagen" type="service_closure" id=".errored..service_locator.yDYuMo6.App\Entity\Imagen"/>
       </argument>
     </service>
+    <service id=".service_locator.buB0Xfs" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="imagen" type="service_closure" id=".errored..service_locator.buB0Xfs.App\Entity\Imagen"/>
+        <argument key="imagenRepository" type="service_closure" id="App\Repository\ImagenRepository"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
+      </argument>
+    </service>
     <service id=".service_locator.ifuwGJX" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6021,6 +6200,14 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="musical" type="service_closure" id=".errored..service_locator..oD9six.App\Entity\Musical"/>
+      </argument>
+    </service>
+    <service id=".service_locator.MOLOjU2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="musical" type="service_closure" id=".errored..service_locator.MOLOjU2.App\Entity\Musical"/>
+        <argument key="musicalRepository" type="service_closure" id="App\Repository\MusicalRepository"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
       </argument>
     </service>
     <service id=".service_locator.P_nCRXz" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6090,21 +6277,21 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.ENRlDRm" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.xylul3J" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AudioController::delete" type="service_closure" id=".service_locator.aLucqk5"/>
-        <argument key="App\Controller\AudioController::edit" type="service_closure" id=".service_locator.aLucqk5"/>
+        <argument key="App\Controller\AudioController::edit" type="service_closure" id=".service_locator.ktGAGxB"/>
         <argument key="App\Controller\AudioController::index" type="service_closure" id=".service_locator.GVBnakq"/>
         <argument key="App\Controller\AudioController::new" type="service_closure" id=".service_locator.Yxvt7jM"/>
         <argument key="App\Controller\AudioController::show" type="service_closure" id=".service_locator.F04_Ow9"/>
         <argument key="App\Controller\ImagenController::delete" type="service_closure" id=".service_locator.ifuwGJX"/>
-        <argument key="App\Controller\ImagenController::edit" type="service_closure" id=".service_locator.ifuwGJX"/>
+        <argument key="App\Controller\ImagenController::edit" type="service_closure" id=".service_locator.buB0Xfs"/>
         <argument key="App\Controller\ImagenController::index" type="service_closure" id=".service_locator.1JxlpHD"/>
         <argument key="App\Controller\ImagenController::new" type="service_closure" id=".service_locator.ym5Vfwx"/>
         <argument key="App\Controller\ImagenController::show" type="service_closure" id=".service_locator.yDYuMo6"/>
         <argument key="App\Controller\MusicalController::delete" type="service_closure" id=".service_locator.P_nCRXz"/>
-        <argument key="App\Controller\MusicalController::edit" type="service_closure" id=".service_locator.P_nCRXz"/>
+        <argument key="App\Controller\MusicalController::edit" type="service_closure" id=".service_locator.MOLOjU2"/>
         <argument key="App\Controller\MusicalController::index" type="service_closure" id=".service_locator..O6Vl0J"/>
         <argument key="App\Controller\MusicalController::new" type="service_closure" id=".service_locator.9F18iJP"/>
         <argument key="App\Controller\MusicalController::show" type="service_closure" id=".service_locator..oD9six"/>
@@ -6128,17 +6315,17 @@
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
         <argument key="App\Controller\AudioController:delete" type="service_closure" id=".service_locator.aLucqk5"/>
-        <argument key="App\Controller\AudioController:edit" type="service_closure" id=".service_locator.aLucqk5"/>
+        <argument key="App\Controller\AudioController:edit" type="service_closure" id=".service_locator.ktGAGxB"/>
         <argument key="App\Controller\AudioController:index" type="service_closure" id=".service_locator.GVBnakq"/>
         <argument key="App\Controller\AudioController:new" type="service_closure" id=".service_locator.Yxvt7jM"/>
         <argument key="App\Controller\AudioController:show" type="service_closure" id=".service_locator.F04_Ow9"/>
         <argument key="App\Controller\ImagenController:delete" type="service_closure" id=".service_locator.ifuwGJX"/>
-        <argument key="App\Controller\ImagenController:edit" type="service_closure" id=".service_locator.ifuwGJX"/>
+        <argument key="App\Controller\ImagenController:edit" type="service_closure" id=".service_locator.buB0Xfs"/>
         <argument key="App\Controller\ImagenController:index" type="service_closure" id=".service_locator.1JxlpHD"/>
         <argument key="App\Controller\ImagenController:new" type="service_closure" id=".service_locator.ym5Vfwx"/>
         <argument key="App\Controller\ImagenController:show" type="service_closure" id=".service_locator.yDYuMo6"/>
         <argument key="App\Controller\MusicalController:delete" type="service_closure" id=".service_locator.P_nCRXz"/>
-        <argument key="App\Controller\MusicalController:edit" type="service_closure" id=".service_locator.P_nCRXz"/>
+        <argument key="App\Controller\MusicalController:edit" type="service_closure" id=".service_locator.MOLOjU2"/>
         <argument key="App\Controller\MusicalController:index" type="service_closure" id=".service_locator..O6Vl0J"/>
         <argument key="App\Controller\MusicalController:new" type="service_closure" id=".service_locator.9F18iJP"/>
         <argument key="App\Controller\MusicalController:show" type="service_closure" id=".service_locator..oD9six"/>
@@ -6440,6 +6627,12 @@
         <argument key="security.token_storage" type="service_closure" id="security.token_storage"/>
       </argument>
     </service>
+    <service id=".service_locator.XgpoQM9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="main" type="service_closure" id="security.authenticator.remember_me_handler.main"/>
+      </argument>
+    </service>
     <service id="debug.event_dispatcher.inner" class="Symfony\Component\EventDispatcher\EventDispatcher"/>
     <service id="debug.controller_resolver.inner" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver">
       <argument type="service" id="service_container"/>
@@ -6516,12 +6709,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.ENRlDRm"/>
+      <argument type="service" id=".service_locator.xylul3J"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.ENRlDRm"/>
+      <argument type="service" id=".service_locator.xylul3J"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -6582,10 +6775,13 @@
     <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.F04_Ow9.App\Entity\Audio" class="App\Entity\Audio"/>
+    <service id=".errored..service_locator.ktGAGxB.App\Entity\Audio" class="App\Entity\Audio"/>
     <service id=".errored..service_locator.aLucqk5.App\Entity\Audio" class="App\Entity\Audio"/>
     <service id=".errored..service_locator.yDYuMo6.App\Entity\Imagen" class="App\Entity\Imagen"/>
+    <service id=".errored..service_locator.buB0Xfs.App\Entity\Imagen" class="App\Entity\Imagen"/>
     <service id=".errored..service_locator.ifuwGJX.App\Entity\Imagen" class="App\Entity\Imagen"/>
     <service id=".errored..service_locator..oD9six.App\Entity\Musical" class="App\Entity\Musical"/>
+    <service id=".errored..service_locator.MOLOjU2.App\Entity\Musical" class="App\Entity\Musical"/>
     <service id=".errored..service_locator.P_nCRXz.App\Entity\Musical" class="App\Entity\Musical"/>
     <service id=".errored..service_locator.fh89mcT.App\Entity\Participante" class="App\Entity\Participante"/>
     <service id=".errored..service_locator.pPSJa7S.App\Entity\Participante" class="App\Entity\Participante"/>
@@ -7363,12 +7559,13 @@
     <service id="security.user_providers" alias="security.user.provider.concrete.app_user_provider"/>
     <service id="Symfony\Component\Security\Core\User\UserProviderInterface" alias="security.user.provider.concrete.app_user_provider"/>
     <service id="security.authentication.session_strategy.main" alias="security.authentication.session_strategy"/>
+    <service id="Symfony\Component\Security\Http\RememberMe\RememberMeHandlerInterface" alias="security.authenticator.firewall_aware_remember_me_handler"/>
     <service id="security.user_checker.main" alias="security.user_checker"/>
     <service id="security.firewall.context_locator" alias=".service_locator.zJyh7qS"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ENRlDRm"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.xylul3J"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7385,7 +7582,7 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.ng5GItH" alias=".service_locator.pPSJa7S"/>
     <service id=".service_locator.j_7xucR" alias=".service_locator.59.oRhZ"/>
-    <service id=".service_locator.2584mLL" alias=".service_locator.ENRlDRm"/>
+    <service id=".service_locator.fWvXc28" alias=".service_locator.xylul3J"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.XU93n6A" alias=".service_locator.ZBIBESi"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
@@ -7448,14 +7645,17 @@
     <service id=".service_locator.GAhU8nS" alias=".service_locator.GVBnakq"/>
     <service id=".service_locator.jzSHxW_" alias=".service_locator.Yxvt7jM"/>
     <service id=".service_locator.taim0T_" alias=".service_locator.F04_Ow9"/>
+    <service id=".service_locator.vRvEKwM" alias=".service_locator.ktGAGxB"/>
     <service id=".service_locator.SGEccQr" alias=".service_locator.aLucqk5"/>
     <service id=".service_locator.UdmhwO6" alias=".service_locator.1JxlpHD"/>
     <service id=".service_locator.C.gZA7m" alias=".service_locator.ym5Vfwx"/>
     <service id=".service_locator.6lrzHZE" alias=".service_locator.yDYuMo6"/>
+    <service id=".service_locator.R0uq11S" alias=".service_locator.buB0Xfs"/>
     <service id=".service_locator.BXyMzT0" alias=".service_locator.ifuwGJX"/>
     <service id=".service_locator.b9HBK41" alias=".service_locator..O6Vl0J"/>
     <service id=".service_locator.IxSp_qM" alias=".service_locator.9F18iJP"/>
     <service id=".service_locator.EBfelc7" alias=".service_locator..oD9six"/>
+    <service id=".service_locator.3jf4Q5K" alias=".service_locator.MOLOjU2"/>
     <service id=".service_locator.ctBYXtD" alias=".service_locator.P_nCRXz"/>
     <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.GicSScr" alias=".service_locator.orA08eh"/>

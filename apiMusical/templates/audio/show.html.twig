@@ -8,12 +8,12 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ audio.id }}</td>
-            </tr>
-            <tr>
                 <th>Descripción</th>
                 <td>{{ audio.Descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Musical</th>
+                <td>{{ musical.Nombre }}</td>
             </tr>
             <tr>
                 <th>Tipo</th>
@@ -23,10 +23,14 @@
                 <th>Enlace</th>
                 <td>{{ audio.Enlace }}</td>
             </tr>
+            <tr>
+                <th>Reproducción</th>
+                <td><audio src="/uploads/audios/{{ audio.Enlace }}" preload="none" controls></audio></td>
+            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_audio_index') }}">Volver a la lista</a>
+    <a href="{{ path('app_audio_index') }}">Volver a la lista - </a>
 
     <a href="{{ path('app_audio_edit', {'id': audio.id}) }}">Editar</a>
 
