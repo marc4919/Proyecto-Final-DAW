@@ -70,16 +70,39 @@ class AudioController extends AbstractController
     {
         return $this->render('audio/show.html.twig', [
             'audio' => $audio,
+            'musical' => $audio->getMusical()
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_audio_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Audio $audio, AudioRepository $audioRepository): Response
+    public function edit(Request $request, Audio $audio, AudioRepository $audioRepository, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(AudioType::class, $audio);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $brochureFile = $form->get('Enlace')->getData();
+            if ($brochureFile) {
+                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $brochureFile->move(
+                        $this->getParameter('audios_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    throw new \Exception(message: 'Ha ocurrido un error :(');
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $audio->setEnlace($newFilename);
+            }
             $audioRepository->add($audio, true);
 
             return $this->redirectToRoute('app_audio_index', [], Response::HTTP_SEE_OTHER);

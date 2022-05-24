@@ -75,61 +75,103 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
     <table class=\"table\">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 12, $this->source); })()), "id", [], "any", false, false, false, 12), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
                 <th>Nombre</th>
                 <td>";
-        // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 16, $this->source); })()), "Nombre", [], "any", false, false, false, 16), "html", null, true);
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 12, $this->source); })()), "Nombre", [], "any", false, false, false, 12), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Sinopsis</th>
                 <td>";
-        // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 20, $this->source); })()), "Sinopsis", [], "any", false, false, false, 20), "html", null, true);
+        // line 16
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 16, $this->source); })()), "Sinopsis", [], "any", false, false, false, 16), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Cartel</th>
-                <td><img src=\"";
-        // line 24
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 24, $this->source); })()), "Cartel", [], "any", false, false, false, 24), "html", null, true);
+                <td><img style=\"width:300px\" src=\"/uploads/carteles/";
+        // line 20
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 20, $this->source); })()), "Cartel", [], "any", false, false, false, 20), "html", null, true);
         echo "\"></img></td>
             </tr>
             <tr>
                 <th>Año</th>
                 <td>";
-        // line 28
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 28, $this->source); })()), "Anyo", [], "any", false, false, false, 28), "html", null, true);
+        // line 24
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 24, $this->source); })()), "Anyo", [], "any", false, false, false, 24), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Vídeo</th>
                 <td>";
-        // line 32
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 32, $this->source); })()), "Video", [], "any", false, false, false, 32), "html", null, true);
+        // line 28
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 28, $this->source); })()), "Video", [], "any", false, false, false, 28), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
     </table>
-
-    <a href=\"";
-        // line 37
+        <a href=\"";
+        // line 32
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_index");
         echo "\">Volver a la lista - </a>
     
     <a href=\"";
-        // line 39
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 39, $this->source); })()), "id", [], "any", false, false, false, 39)]), "html", null, true);
-        echo "\">Editar</a>
+        // line 34
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 34, $this->source); })()), "id", [], "any", false, false, false, 34)]), "html", null, true);
+        echo "\">Editar - </a>
+<a href=\"#lista\" data-toggle=\"collapse\" aria-expanded=\"false\">Mostrar Participantes</a>
+<br>
+    <table class=\"table collapse\" id=\"lista\">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        ";
+        // line 46
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["participantes"]) || array_key_exists("participantes", $context) ? $context["participantes"] : (function () { throw new RuntimeError('Variable "participantes" does not exist.', 46, $this->source); })()));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["participante"]) {
+            // line 47
+            echo "            <tr>
+                <td>";
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participante"], "Nombre", [], "any", false, false, false, 48), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participante"], "Apellidos", [], "any", false, false, false, 49), "html", null, true);
+            echo "</td>
+                <td>
+                    <a href=\"";
+            // line 51
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_show", ["id" => twig_get_attribute($this->env, $this->source, $context["participante"], "id", [], "any", false, false, false, 51)]), "html", null, true);
+            echo "\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z\"/></svg></a>
+                </td>
+            </tr>
+        ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 55
+            echo "            <tr>
+                <td colspan=\"4\">no records found</td>
+            </tr>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['participante'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 59
+        echo "        </tbody>
+    </table>
     ";
-        // line 40
+        // line 61
         echo twig_include($this->env, $context, "musical/_delete_form.html.twig");
         echo "
 ";
@@ -150,7 +192,7 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  133 => 40,  129 => 39,  124 => 37,  116 => 32,  109 => 28,  102 => 24,  95 => 20,  88 => 16,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  175 => 61,  171 => 59,  162 => 55,  153 => 51,  148 => 49,  144 => 48,  141 => 47,  136 => 46,  121 => 34,  116 => 32,  109 => 28,  102 => 24,  95 => 20,  88 => 16,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -165,10 +207,6 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
     <table class=\"table\">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ musical.id }}</td>
-            </tr>
-            <tr>
                 <th>Nombre</th>
                 <td>{{ musical.Nombre }}</td>
             </tr>
@@ -178,7 +216,7 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
             </tr>
             <tr>
                 <th>Cartel</th>
-                <td><img src=\"{{ musical.Cartel }}\"></img></td>
+                <td><img style=\"width:300px\" src=\"/uploads/carteles/{{ musical.Cartel }}\"></img></td>
             </tr>
             <tr>
                 <th>Año</th>
@@ -190,10 +228,35 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
             </tr>
         </tbody>
     </table>
-
-    <a href=\"{{ path('app_musical_index') }}\">Volver a la lista - </a>
+        <a href=\"{{ path('app_musical_index') }}\">Volver a la lista - </a>
     
-    <a href=\"{{ path('app_musical_edit', {'id': musical.id}) }}\">Editar</a>
+    <a href=\"{{ path('app_musical_edit', {'id': musical.id}) }}\">Editar - </a>
+<a href=\"#lista\" data-toggle=\"collapse\" aria-expanded=\"false\">Mostrar Participantes</a>
+<br>
+    <table class=\"table collapse\" id=\"lista\">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participante in participantes %}
+            <tr>
+                <td>{{ participante.Nombre }}</td>
+                <td>{{ participante.Apellidos }}</td>
+                <td>
+                    <a href=\"{{ path('app_participante_show', {'id': participante.id}) }}\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z\"/></svg></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan=\"4\">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
     {{ include('musical/_delete_form.html.twig') }}
 {% endblock %}
 ", "musical/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/musical/show.html.twig");

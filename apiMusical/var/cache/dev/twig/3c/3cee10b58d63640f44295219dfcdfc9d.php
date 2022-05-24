@@ -74,7 +74,7 @@ class __TwigTemplate_bacefa83359751a91487418b7d014069 extends Template
 
     ";
         // line 8
-        echo twig_include($this->env, $context, "audio/_form.html.twig", ["button_label" => "Update"]);
+        echo twig_include($this->env, $context, "audio/_form.html.twig", ["button_label" => "Actualizar"]);
         echo "
 
     <a href=\"";
@@ -116,7 +116,7 @@ class __TwigTemplate_bacefa83359751a91487418b7d014069 extends Template
 {% block contenido %}
     <h1>Editar Audio</h1>
 
-    {{ include('audio/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('audio/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
     <a href=\"{{ path('app_audio_index') }}\">Volver a la lista</a>
 
