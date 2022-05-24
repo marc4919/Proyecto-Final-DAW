@@ -82,7 +82,7 @@ class __TwigTemplate_32ff79bcec263d964b0a078b73b38dd8 extends Template
         echo "</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>";
         // line 16
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["imagen"]) || array_key_exists("imagen", $context) ? $context["imagen"] : (function () { throw new RuntimeError('Variable "imagen" does not exist.', 16, $this->source); })()), "Descripcion", [], "any", false, false, false, 16), "html", null, true);
@@ -149,7 +149,7 @@ class __TwigTemplate_32ff79bcec263d964b0a078b73b38dd8 extends Template
                 <td>{{ imagen.id }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ imagen.Descripcion }}</td>
             </tr>
             <tr>

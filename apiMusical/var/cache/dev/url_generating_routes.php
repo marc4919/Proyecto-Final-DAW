@@ -20,6 +20,7 @@ return [
     'app_musical_edit' => [['id'], ['_controller' => 'App\\Controller\\MusicalController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/musical']], [], [], []],
     'app_musical_delete' => [['id'], ['_controller' => 'App\\Controller\\MusicalController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/musical']], [], [], []],
     'app_participante_index' => [[], ['_controller' => 'App\\Controller\\ParticipanteController::index'], [], [['text', '/participante/']], [], [], []],
+    'app_participante_pdfAction' => [[], ['_controller' => 'App\\Controller\\ParticipanteController::pdfAction'], [], [['text', '/participante/imprimir']], [], [], []],
     'app_participante_new' => [[], ['_controller' => 'App\\Controller\\ParticipanteController::new'], [], [['text', '/participante/new']], [], [], []],
     'app_participante_show' => [['id'], ['_controller' => 'App\\Controller\\ParticipanteController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/participante']], [], [], []],
     'app_participante_edit' => [['id'], ['_controller' => 'App\\Controller\\ParticipanteController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/participante']], [], [], []],

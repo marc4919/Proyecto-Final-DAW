@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Participante;
 use App\Form\ParticipanteType;
+use App\Repository\ParticipanteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
+use Knp\Snappy\Pdf;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,6 +26,22 @@ class ParticipanteController extends AbstractController
         return $this->render('participante/index.html.twig', [
             'participantes' => $participantes,
         ]);
+    }
+    #[Route('/imprimir', name: 'app_participante_pdfAction', methods: ['GET'])]
+    public function pdfAction(EntityManagerInterface $entityManager, Pdf $knpSnappyPdf)
+    {
+        $participantes = $entityManager
+            ->getRepository(Participante::class)
+            ->findAll();
+            
+
+            $html = $this->renderView('imprimir.html.twig', [
+                'participantes' => $participantes,
+            ]);
+            return new PdfResponse(
+                $knpSnappyPdf->getOutputFromHtml($html),
+                'file.pdf'
+            );
     }
 
     #[Route('/new', name: 'app_participante_new', methods: ['GET', 'POST'])]
@@ -81,4 +100,6 @@ class ParticipanteController extends AbstractController
 
         return $this->redirectToRoute('app_participante_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
 }

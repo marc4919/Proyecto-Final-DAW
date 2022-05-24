@@ -61,6 +61,7 @@ class ComposerStaticInitba35e8113683c3d827249835851b388a
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\PropertyInfo\\' => 31,
             'Symfony\\Component\\PropertyAccess\\' => 33,
+            'Symfony\\Component\\Process\\' => 26,
             'Symfony\\Component\\PasswordHasher\\' => 33,
             'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\Mime\\' => 23,
@@ -103,6 +104,11 @@ class ComposerStaticInitba35e8113683c3d827249835851b388a
         'L' => 
         array (
             'Laminas\\Code\\' => 13,
+        ),
+        'K' => 
+        array (
+            'Knp\\Snappy\\' => 11,
+            'Knp\\Bundle\\SnappyBundle\\' => 24,
         ),
         'F' => 
         array (
@@ -271,6 +277,10 @@ class ComposerStaticInitba35e8113683c3d827249835851b388a
         array (
             0 => __DIR__ . '/..' . '/symfony/property-access',
         ),
+        'Symfony\\Component\\Process\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/process',
+        ),
         'Symfony\\Component\\PasswordHasher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/password-hasher',
@@ -402,6 +412,14 @@ class ComposerStaticInitba35e8113683c3d827249835851b388a
         'Laminas\\Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
+        ),
+        'Knp\\Snappy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy',
+        ),
+        'Knp\\Bundle\\SnappyBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src',
         ),
         'Fig\\Link\\' => 
         array (
@@ -989,19 +1007,27 @@ class ComposerStaticInitba35e8113683c3d827249835851b388a
         'App\\Controller\\MainController' => __DIR__ . '/../..' . '/src/Controller/MainController.php',
         'App\\Controller\\MusicalController' => __DIR__ . '/../..' . '/src/Controller/MusicalController.php',
         'App\\Controller\\ParticipanteController' => __DIR__ . '/../..' . '/src/Controller/ParticipanteController.php',
+        'App\\Controller\\RegistrationController' => __DIR__ . '/../..' . '/src/Controller/RegistrationController.php',
+        'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
+        'App\\Controller\\UserController' => __DIR__ . '/../..' . '/src/Controller/UserController.php',
         'App\\Entity\\Audio' => __DIR__ . '/../..' . '/src/Entity/Audio.php',
         'App\\Entity\\Imagen' => __DIR__ . '/../..' . '/src/Entity/Imagen.php',
         'App\\Entity\\Musical' => __DIR__ . '/../..' . '/src/Entity/Musical.php',
         'App\\Entity\\Participante' => __DIR__ . '/../..' . '/src/Entity/Participante.php',
+        'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
         'App\\Form\\AudioType' => __DIR__ . '/../..' . '/src/Form/AudioType.php',
         'App\\Form\\ImagenType' => __DIR__ . '/../..' . '/src/Form/ImagenType.php',
         'App\\Form\\MusicalType' => __DIR__ . '/../..' . '/src/Form/MusicalType.php',
         'App\\Form\\ParticipanteType' => __DIR__ . '/../..' . '/src/Form/ParticipanteType.php',
+        'App\\Form\\RegistrationFormType' => __DIR__ . '/../..' . '/src/Form/RegistrationFormType.php',
+        'App\\Form\\UserType' => __DIR__ . '/../..' . '/src/Form/UserType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\AudioRepository' => __DIR__ . '/../..' . '/src/Repository/AudioRepository.php',
         'App\\Repository\\ImagenRepository' => __DIR__ . '/../..' . '/src/Repository/ImagenRepository.php',
         'App\\Repository\\MusicalRepository' => __DIR__ . '/../..' . '/src/Repository/MusicalRepository.php',
         'App\\Repository\\ParticipanteRepository' => __DIR__ . '/../..' . '/src/Repository/ParticipanteRepository.php',
+        'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
+        'App\\Security\\LoginauthAuthenticator' => __DIR__ . '/../..' . '/src/Security/LoginauthAuthenticator.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -2121,6 +2147,19 @@ class ComposerStaticInitba35e8113683c3d827249835851b388a
         'Fig\\Link\\TemplatedHrefTrait' => __DIR__ . '/..' . '/fig/link-util/src/TemplatedHrefTrait.php',
         'IntlDateFormatter' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/IntlDateFormatter.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'Knp\\Bundle\\SnappyBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src/DependencyInjection/Configuration.php',
+        'Knp\\Bundle\\SnappyBundle\\DependencyInjection\\KnpSnappyExtension' => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src/DependencyInjection/KnpSnappyExtension.php',
+        'Knp\\Bundle\\SnappyBundle\\KnpSnappyBundle' => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src/KnpSnappyBundle.php',
+        'Knp\\Bundle\\SnappyBundle\\Snappy\\Generator\\LoggableGenerator' => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src/Snappy/Generator/LoggableGenerator.php',
+        'Knp\\Bundle\\SnappyBundle\\Snappy\\LoggableGenerator' => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src/Snappy/LoggableGenerator.php',
+        'Knp\\Bundle\\SnappyBundle\\Snappy\\Response\\JpegResponse' => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src/Snappy/Response/JpegResponse.php',
+        'Knp\\Bundle\\SnappyBundle\\Snappy\\Response\\PdfResponse' => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src/Snappy/Response/PdfResponse.php',
+        'Knp\\Bundle\\SnappyBundle\\Snappy\\Response\\SnappyResponse' => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle/src/Snappy/Response/SnappyResponse.php',
+        'Knp\\Snappy\\AbstractGenerator' => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy/AbstractGenerator.php',
+        'Knp\\Snappy\\Exception\\FileAlreadyExistsException' => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy/Exception/FileAlreadyExistsException.php',
+        'Knp\\Snappy\\GeneratorInterface' => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy/GeneratorInterface.php',
+        'Knp\\Snappy\\Image' => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy/Image.php',
+        'Knp\\Snappy\\Pdf' => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy/Pdf.php',
         'Laminas\\Code\\DeclareStatement' => __DIR__ . '/..' . '/laminas/laminas-code/src/DeclareStatement.php',
         'Laminas\\Code\\Exception\\BadMethodCallException' => __DIR__ . '/..' . '/laminas/laminas-code/src/Exception/BadMethodCallException.php',
         'Laminas\\Code\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/laminas/laminas-code/src/Exception/ExceptionInterface.php',
@@ -4076,6 +4115,23 @@ class ComposerStaticInitba35e8113683c3d827249835851b388a
         'Symfony\\Component\\PasswordHasher\\Hasher\\UserPasswordHasherInterface' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/UserPasswordHasherInterface.php',
         'Symfony\\Component\\PasswordHasher\\LegacyPasswordHasherInterface' => __DIR__ . '/..' . '/symfony/password-hasher/LegacyPasswordHasherInterface.php',
         'Symfony\\Component\\PasswordHasher\\PasswordHasherInterface' => __DIR__ . '/..' . '/symfony/password-hasher/PasswordHasherInterface.php',
+        'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/process/Exception/ExceptionInterface.php',
+        'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/process/Exception/InvalidArgumentException.php',
+        'Symfony\\Component\\Process\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/process/Exception/LogicException.php',
+        'Symfony\\Component\\Process\\Exception\\ProcessFailedException' => __DIR__ . '/..' . '/symfony/process/Exception/ProcessFailedException.php',
+        'Symfony\\Component\\Process\\Exception\\ProcessSignaledException' => __DIR__ . '/..' . '/symfony/process/Exception/ProcessSignaledException.php',
+        'Symfony\\Component\\Process\\Exception\\ProcessTimedOutException' => __DIR__ . '/..' . '/symfony/process/Exception/ProcessTimedOutException.php',
+        'Symfony\\Component\\Process\\Exception\\RuntimeException' => __DIR__ . '/..' . '/symfony/process/Exception/RuntimeException.php',
+        'Symfony\\Component\\Process\\ExecutableFinder' => __DIR__ . '/..' . '/symfony/process/ExecutableFinder.php',
+        'Symfony\\Component\\Process\\InputStream' => __DIR__ . '/..' . '/symfony/process/InputStream.php',
+        'Symfony\\Component\\Process\\PhpExecutableFinder' => __DIR__ . '/..' . '/symfony/process/PhpExecutableFinder.php',
+        'Symfony\\Component\\Process\\PhpProcess' => __DIR__ . '/..' . '/symfony/process/PhpProcess.php',
+        'Symfony\\Component\\Process\\Pipes\\AbstractPipes' => __DIR__ . '/..' . '/symfony/process/Pipes/AbstractPipes.php',
+        'Symfony\\Component\\Process\\Pipes\\PipesInterface' => __DIR__ . '/..' . '/symfony/process/Pipes/PipesInterface.php',
+        'Symfony\\Component\\Process\\Pipes\\UnixPipes' => __DIR__ . '/..' . '/symfony/process/Pipes/UnixPipes.php',
+        'Symfony\\Component\\Process\\Pipes\\WindowsPipes' => __DIR__ . '/..' . '/symfony/process/Pipes/WindowsPipes.php',
+        'Symfony\\Component\\Process\\Process' => __DIR__ . '/..' . '/symfony/process/Process.php',
+        'Symfony\\Component\\Process\\ProcessUtils' => __DIR__ . '/..' . '/symfony/process/ProcessUtils.php',
         'Symfony\\Component\\PropertyAccess\\Exception\\AccessException' => __DIR__ . '/..' . '/symfony/property-access/Exception/AccessException.php',
         'Symfony\\Component\\PropertyAccess\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/property-access/Exception/ExceptionInterface.php',
         'Symfony\\Component\\PropertyAccess\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/property-access/Exception/InvalidArgumentException.php',

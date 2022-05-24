@@ -70,7 +70,7 @@ class __TwigTemplate_ea1e28d90011c95be39ce090c00f4d08 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "contenido"));
 
         // line 6
-        echo "    <h1>Create new Imagen</h1>
+        echo "    <h1>Crear Nueva Imagen</h1>
 
     ";
         // line 8
@@ -80,7 +80,7 @@ class __TwigTemplate_ea1e28d90011c95be39ce090c00f4d08 extends Template
     <a href=\"";
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_imagen_index");
-        echo "\">back to list</a>
+        echo "\">Volver a la lista</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -109,11 +109,11 @@ class __TwigTemplate_ea1e28d90011c95be39ce090c00f4d08 extends Template
 {% block title %}New Imagen{% endblock %}
 
 {% block contenido %}
-    <h1>Create new Imagen</h1>
+    <h1>Crear Nueva Imagen</h1>
 
     {{ include('imagen/_form.html.twig') }}
 
-    <a href=\"{{ path('app_imagen_index') }}\">back to list</a>
+    <a href=\"{{ path('app_imagen_index') }}\">Volver a la lista</a>
 {% endblock %}
 ", "imagen/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/imagen/new.html.twig");
     }

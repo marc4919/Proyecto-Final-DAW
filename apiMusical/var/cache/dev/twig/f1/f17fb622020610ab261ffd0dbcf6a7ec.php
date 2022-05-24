@@ -122,15 +122,14 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
     <a href=\"";
         // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_index");
-        echo "\">Volver a la lista</a>
-
+        echo "\">Volver a la lista - </a>
+    
     <a href=\"";
         // line 39
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["musical"]) || array_key_exists("musical", $context) ? $context["musical"] : (function () { throw new RuntimeError('Variable "musical" does not exist.', 39, $this->source); })()), "id", [], "any", false, false, false, 39)]), "html", null, true);
         echo "\">Editar</a>
-
     ";
-        // line 41
+        // line 40
         echo twig_include($this->env, $context, "musical/_delete_form.html.twig");
         echo "
 ";
@@ -151,7 +150,7 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  134 => 41,  129 => 39,  124 => 37,  116 => 32,  109 => 28,  102 => 24,  95 => 20,  88 => 16,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  133 => 40,  129 => 39,  124 => 37,  116 => 32,  109 => 28,  102 => 24,  95 => 20,  88 => 16,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -192,10 +191,9 @@ class __TwigTemplate_eaa7846dc9fc8e1f1e02559c98a15df9 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_musical_index') }}\">Volver a la lista</a>
-
+    <a href=\"{{ path('app_musical_index') }}\">Volver a la lista - </a>
+    
     <a href=\"{{ path('app_musical_edit', {'id': musical.id}) }}\">Editar</a>
-
     {{ include('musical/_delete_form.html.twig') }}
 {% endblock %}
 ", "musical/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/musical/show.html.twig");
