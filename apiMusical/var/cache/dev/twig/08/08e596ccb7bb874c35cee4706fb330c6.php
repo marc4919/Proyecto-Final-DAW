@@ -86,6 +86,8 @@ class __TwigTemplate_2db04752c1009b2a7829363a49aec512 extends Template
 \t\t.form-control{
 \t\t\tborder: 1px solid rgba(0, 0, 0, 0.1)
 \t\t}
+\t\t#musical_participantes{height:300px;}
+\t\t#participante_musicals{height:100px;}
 \t\t</style>
   </head>
   <body>
@@ -132,7 +134,7 @@ class __TwigTemplate_2db04752c1009b2a7829363a49aec512 extends Template
 \t          </li>
 \t        </ul>
 \t             <a href=\"";
-        // line 66
+        // line 68
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         echo "\"><button style=\"width: 100%\" type=\"button\" class=\"btn btn-secondary\">Salir</button></a> 
 \t\t\t
@@ -145,9 +147,9 @@ class __TwigTemplate_2db04752c1009b2a7829363a49aec512 extends Template
 
         
         ";
-        // line 76
+        // line 78
         $this->displayBlock('contenido', $context, $blocks);
-        // line 77
+        // line 79
         echo "      </div>
 \t\t</div>
 
@@ -163,7 +165,7 @@ class __TwigTemplate_2db04752c1009b2a7829363a49aec512 extends Template
 
     }
 
-    // line 76
+    // line 78
     public function block_contenido($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -188,7 +190,7 @@ class __TwigTemplate_2db04752c1009b2a7829363a49aec512 extends Template
 
     public function getDebugInfo()
     {
-        return array (  167 => 76,  151 => 77,  149 => 76,  136 => 66,  74 => 6,  67 => 5,  54 => 3,  37 => 1,);
+        return array (  169 => 78,  153 => 79,  151 => 78,  138 => 68,  74 => 6,  67 => 5,  54 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -213,6 +215,8 @@ class __TwigTemplate_2db04752c1009b2a7829363a49aec512 extends Template
 \t\t.form-control{
 \t\t\tborder: 1px solid rgba(0, 0, 0, 0.1)
 \t\t}
+\t\t#musical_participantes{height:300px;}
+\t\t#participante_musicals{height:100px;}
 \t\t</style>
   </head>
   <body>

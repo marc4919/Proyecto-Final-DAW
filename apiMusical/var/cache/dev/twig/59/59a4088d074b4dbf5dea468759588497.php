@@ -74,7 +74,7 @@ class __TwigTemplate_2000286ceb75ab181d78b447532590cc extends Template
 
     ";
         // line 8
-        echo twig_include($this->env, $context, "participante/_form.html.twig", ["button_label" => "Update"]);
+        echo twig_include($this->env, $context, "participante/_form.html.twig", ["button_label" => "Actualizar"]);
         echo "
 
     <a href=\"";
@@ -116,7 +116,7 @@ class __TwigTemplate_2000286ceb75ab181d78b447532590cc extends Template
 {% block contenido %}
     <h1>Editar Participante</h1>
 
-    {{ include('participante/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('participante/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
     <a href=\"{{ path('app_participante_index') }}\">Volver a la lista</a>
 

@@ -76,9 +76,8 @@ class __TwigTemplate_8336f828a82cdadfde37df1c3adc0c8e extends Template
         // line 8
         echo twig_include($this->env, $context, "musical/_form.html.twig");
         echo "
-
     <a href=\"";
-        // line 10
+        // line 9
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_index");
         echo "\">Volver a la lista</a>
 ";
@@ -99,7 +98,7 @@ class __TwigTemplate_8336f828a82cdadfde37df1c3adc0c8e extends Template
 
     public function getDebugInfo()
     {
-        return array (  82 => 10,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  81 => 9,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -112,7 +111,6 @@ class __TwigTemplate_8336f828a82cdadfde37df1c3adc0c8e extends Template
     <h1>Crear Nuevo Musical</h1>
 
     {{ include('musical/_form.html.twig') }}
-
     <a href=\"{{ path('app_musical_index') }}\">Volver a la lista</a>
 {% endblock %}
 ", "musical/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/musical/new.html.twig");
