@@ -115,6 +115,6 @@ class __TwigTemplate_36cf218c7a5ae5ceea8b56bdf64ea481 extends Template
 
     <a href=\"{{ path('app_audio_index') }}\">Volver a la lista</a>
 {% endblock %}
-", "audio/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/audio/new.html.twig");
+", "audio/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/audio/new.html.twig");
     }
 }

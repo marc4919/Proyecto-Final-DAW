@@ -74,7 +74,7 @@ class __TwigTemplate_bdb1e1d7b55a5b30ac265414d1ab474f extends Template
 
     ";
         // line 8
-        echo twig_include($this->env, $context, "imagen/_form.html.twig", ["button_label" => "Update"]);
+        echo twig_include($this->env, $context, "imagen/_form.html.twig", ["button_label" => "Actualizar"]);
         echo "
 
     <a href=\"";
@@ -116,12 +116,12 @@ class __TwigTemplate_bdb1e1d7b55a5b30ac265414d1ab474f extends Template
 {% block contenido %}
     <h1>Editar Imagen</h1>
 
-    {{ include('imagen/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('imagen/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
     <a href=\"{{ path('app_imagen_index') }}\">Volver a la lista</a>
 
     {{ include('imagen/_delete_form.html.twig') }}
 {% endblock %}
-", "imagen/edit.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/imagen/edit.html.twig");
+", "imagen/edit.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/imagen/edit.html.twig");
     }
 }

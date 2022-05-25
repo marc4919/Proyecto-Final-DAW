@@ -73,6 +73,6 @@ class __TwigTemplate_e1c6ed4e8654eefba91c58be79bbc70d extends Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ audio.id) }}\">
      <br><button type=\"btn\" class=\"btn btn-outline-danger\">Eliminar</button>
 </form>
-", "audio/_delete_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/audio/_delete_form.html.twig");
+", "audio/_delete_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/audio/_delete_form.html.twig");
     }
 }

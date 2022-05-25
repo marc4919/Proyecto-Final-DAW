@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9c807bce42d8bb16a9060da61aecf6d18a99bb42',
+        'reference' => 'fbc3f3d8bf36ed95d041c4b2abf3b9434a66d6a7',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9c807bce42d8bb16a9060da61aecf6d18a99bb42',
+            'reference' => 'fbc3f3d8bf36ed95d041c4b2abf3b9434a66d6a7',
             'dev_requirement' => false,
         ),
         'api-platform/core' => array(
@@ -461,12 +461,12 @@
             'dev_requirement' => false,
         ),
         'symfony/flex' => array(
-            'pretty_version' => 'v1.18.7',
-            'version' => '1.18.7.0',
+            'pretty_version' => 'v2.1.8',
+            'version' => '2.1.8.0',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../symfony/flex',
             'aliases' => array(),
-            'reference' => 'e74319d17ed4edc5f27b9d24757e172930a7ebc4',
+            'reference' => 'dcbe58c3fbafeaeb32f619bf94c3912c0c732b65',
             'dev_requirement' => false,
         ),
         'symfony/form' => array(

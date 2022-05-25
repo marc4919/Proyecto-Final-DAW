@@ -135,6 +135,6 @@ class __TwigTemplate_75c08387d884634a41f62c25319eb3f5 extends Template
         <button type=\"submit\" class=\"btn\">Registrar</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
-", "registration/register.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/registration/register.html.twig");
+", "registration/register.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/registration/register.html.twig");
     }
 }

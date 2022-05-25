@@ -73,6 +73,6 @@ class __TwigTemplate_fcb60c216e0f7db9e2ba2c95f8149a4c extends Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ user.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "user/_delete_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/user/_delete_form.html.twig");
+", "user/_delete_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/user/_delete_form.html.twig");
     }
 }

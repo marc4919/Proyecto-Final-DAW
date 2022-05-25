@@ -210,6 +210,6 @@ class __TwigTemplate_f0f323dcf569fe362e99c02c205e413f extends Template
     
     \t</div>
 {% endblock %}
-", "participante/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/index.html.twig");
+", "participante/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/participante/index.html.twig");
     }
 }

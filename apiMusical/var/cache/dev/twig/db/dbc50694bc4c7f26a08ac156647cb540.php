@@ -269,6 +269,6 @@ class __TwigTemplate_41e579f70a08f22cbebb19bf4a6b261c extends Template
         {{- form_rest(form) -}}
     </table>
 {%- endblock form_widget_compound -%}
-", "form_table_layout.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/vendor/symfony/twig-bridge/Resources/views/Form/form_table_layout.html.twig");
+", "form_table_layout.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/vendor/symfony/twig-bridge/Resources/views/Form/form_table_layout.html.twig");
     }
 }

@@ -123,6 +123,6 @@ class __TwigTemplate_f0b1cc747283079054c18afb9d9f0e36 extends Template
         </div>
     </div>
 {%- endblock %}
-", "@Dropzone/form_theme.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/vendor/symfony/ux-dropzone/Resources/views/form_theme.html.twig");
+", "@Dropzone/form_theme.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/vendor/symfony/ux-dropzone/Resources/views/form_theme.html.twig");
     }
 }

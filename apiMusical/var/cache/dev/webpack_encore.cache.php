@@ -4,23 +4,8 @@
 
 return [[
 
-'_default' => 0,
 
 ], [
 
-0 => [
-    'entrypoints' => [
-        'app' => [
-            'js' => [
-                '/build/runtime.js',
-                '/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-dropzone_d-bc851d.js',
-                '/build/app.js',
-            ],
-            'css' => [
-                '/build/app.css',
-            ],
-        ],
-    ],
-],
 
 ]];

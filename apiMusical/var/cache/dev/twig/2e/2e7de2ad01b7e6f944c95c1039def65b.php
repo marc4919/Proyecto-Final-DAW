@@ -187,6 +187,6 @@ class __TwigTemplate_f7e9b3fb248b3417ffe7245ffa512018 extends Template
 
     {{ include('audio/_delete_form.html.twig') }}
 {% endblock %}
-", "audio/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/audio/show.html.twig");
+", "audio/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/audio/show.html.twig");
     }
 }

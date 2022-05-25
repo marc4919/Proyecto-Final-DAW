@@ -385,6 +385,6 @@ class __TwigTemplate_c7610f152b12af8a65e7bf8210037e23 extends Template
 
 </body>
 </html>
-", "@ApiPlatform/SwaggerUi/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
+", "@ApiPlatform/SwaggerUi/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
     }
 }

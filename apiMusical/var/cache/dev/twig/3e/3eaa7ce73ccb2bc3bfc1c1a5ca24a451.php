@@ -78,6 +78,6 @@ class __TwigTemplate_4f981b6511095a656f8601678afc28f0 extends Template
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "participante/_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/_form.html.twig");
+", "participante/_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/participante/_form.html.twig");
     }
 }

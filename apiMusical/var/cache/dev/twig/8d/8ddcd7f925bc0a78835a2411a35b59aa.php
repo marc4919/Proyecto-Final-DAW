@@ -113,6 +113,6 @@ class __TwigTemplate_8336f828a82cdadfde37df1c3adc0c8e extends Template
     {{ include('musical/_form.html.twig') }}
     <a href=\"{{ path('app_musical_index') }}\">Volver a la lista</a>
 {% endblock %}
-", "musical/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/musical/new.html.twig");
+", "musical/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/musical/new.html.twig");
     }
 }

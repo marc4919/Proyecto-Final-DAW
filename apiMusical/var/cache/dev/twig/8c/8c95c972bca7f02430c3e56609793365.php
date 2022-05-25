@@ -235,6 +235,6 @@ class __TwigTemplate_8f31b5d00dc5b2d964652c540b678143 extends Template
 
     {{ include('participante/_delete_form.html.twig') }}
 {% endblock %}
-", "participante/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/show.html.twig");
+", "participante/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/participante/show.html.twig");
     }
 }

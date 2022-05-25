@@ -208,6 +208,6 @@ class __TwigTemplate_21670acc2a47458fe54afbd23d68aca5 extends Template
 
     <a href=\"{{ path('app_musical_new') }}\">Crear Musical</a>
 {% endblock %}
-", "musical/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/musical/index.html.twig");
+", "musical/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/musical/index.html.twig");
     }
 }

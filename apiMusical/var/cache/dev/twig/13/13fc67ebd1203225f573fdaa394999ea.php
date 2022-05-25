@@ -176,6 +176,6 @@ class __TwigTemplate_06c16fe53984b9aa077a21984ae5e5aa extends Template
 
     <!--{{ include('user/_delete_form.html.twig') }}-->
 {% endblock %}
-", "user/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/user/show.html.twig");
+", "user/show.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/user/show.html.twig");
     }
 }

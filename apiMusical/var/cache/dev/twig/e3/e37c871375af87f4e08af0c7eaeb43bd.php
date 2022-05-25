@@ -146,6 +146,6 @@ class __TwigTemplate_94572077a939564de2fbb7cd7037a854 extends Template
     </table>
     </body>
 </html>
-", "imprimir.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/imprimir.html.twig");
+", "imprimir.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/imprimir.html.twig");
     }
 }

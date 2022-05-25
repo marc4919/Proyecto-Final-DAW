@@ -194,6 +194,6 @@ class __TwigTemplate_2144ec1830ab0f204c7426b68b4f9ecd extends Template
 
     <a href=\"{{ path('app_imagen_new') }}\">Añadir Imagen</a>
 {% endblock %}
-", "imagen/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/imagen/index.html.twig");
+", "imagen/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/imagen/index.html.twig");
     }
 }

@@ -115,6 +115,6 @@ class __TwigTemplate_8420890646ed7a1469bb71089f8603b3 extends Template
 
     <a href=\"{{ path('app_participante_index') }}\">Volver a la lista</a>
 {% endblock %}
-", "participante/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/new.html.twig");
+", "participante/new.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/participante/new.html.twig");
     }
 }

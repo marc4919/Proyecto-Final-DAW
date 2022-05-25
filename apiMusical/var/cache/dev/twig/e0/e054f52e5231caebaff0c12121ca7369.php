@@ -187,6 +187,6 @@ class __TwigTemplate_532bab7a21cff42ec0494b4346ef95d9 extends Template
 
     <a href=\"{{ path('app_register') }}\">Crear nuevo</a>
 {% endblock %}
-", "user/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/user/index.html.twig");
+", "user/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/user/index.html.twig");
     }
 }

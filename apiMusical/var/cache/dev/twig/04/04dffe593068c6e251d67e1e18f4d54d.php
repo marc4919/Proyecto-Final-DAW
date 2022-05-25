@@ -266,6 +266,6 @@ class __TwigTemplate_b1989c1c683938016cab36b60759a28c extends Template
 </html>
 
 {% endblock %}
-", "security/login.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/security/login.html.twig");
+", "security/login.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/security/login.html.twig");
     }
 }

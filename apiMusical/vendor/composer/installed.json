@@ -3532,31 +3532,31 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.18.7",
-            "version_normalized": "1.18.7.0",
+            "version": "v2.1.8",
+            "version_normalized": "2.1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "e74319d17ed4edc5f27b9d24757e172930a7ebc4"
+                "reference": "dcbe58c3fbafeaeb32f619bf94c3912c0c732b65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/e74319d17ed4edc5f27b9d24757e172930a7ebc4",
-                "reference": "e74319d17ed4edc5f27b9d24757e172930a7ebc4",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/dcbe58c3fbafeaeb32f619bf94c3912c0c732b65",
+                "reference": "dcbe58c3fbafeaeb32f619bf94c3912c0c732b65",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0|^2.0",
-                "php": ">=7.1"
+                "composer-plugin-api": "^2.1",
+                "php": ">=8.0"
             },
             "require-dev": {
-                "composer/composer": "^1.0.2|^2.0",
-                "symfony/dotenv": "^4.4|^5.0|^6.0",
-                "symfony/filesystem": "^4.4|^5.0|^6.0",
-                "symfony/phpunit-bridge": "^4.4.12|^5.0|^6.0",
-                "symfony/process": "^4.4|^5.0|^6.0"
+                "composer/composer": "^2.1",
+                "symfony/dotenv": "^5.4|^6.0",
+                "symfony/filesystem": "^5.4|^6.0",
+                "symfony/phpunit-bridge": "^5.4|^6.0",
+                "symfony/process": "^5.4|^6.0"
             },
-            "time": "2022-05-02T10:18:23+00:00",
+            "time": "2022-05-02T10:23:41+00:00",
             "type": "composer-plugin",
             "extra": {
                 "class": "Symfony\\Flex\\Flex"
@@ -3580,7 +3580,7 @@
             "description": "Composer plugin for Symfony",
             "support": {
                 "issues": "https://github.com/symfony/flex/issues",
-                "source": "https://github.com/symfony/flex/tree/v1.18.7"
+                "source": "https://github.com/symfony/flex/tree/v2.1.8"
             },
             "funding": [
                 {

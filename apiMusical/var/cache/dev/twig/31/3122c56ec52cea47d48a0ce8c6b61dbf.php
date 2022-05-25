@@ -194,6 +194,6 @@ class __TwigTemplate_ff30b2d6739080c5ffb42fd8ed591e62 extends Template
 
     <a href=\"{{ path('app_audio_new') }}\">Añadir Audio</a>
 {% endblock %}
-", "audio/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/audio/index.html.twig");
+", "audio/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/audio/index.html.twig");
     }
 }

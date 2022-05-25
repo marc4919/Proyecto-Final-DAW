@@ -165,6 +165,6 @@ class __TwigTemplate_4f54aef4b84a6d9d003b241a1b388420 extends Template
         {%- endfor -%}
     </pre>
 {% endif %}
-", "@Doctrine/Collector/explain.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/vendor/doctrine/doctrine-bundle/Resources/views/Collector/explain.html.twig");
+", "@Doctrine/Collector/explain.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/vendor/doctrine/doctrine-bundle/Resources/views/Collector/explain.html.twig");
     }
 }

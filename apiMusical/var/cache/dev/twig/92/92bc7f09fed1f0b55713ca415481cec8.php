@@ -133,6 +133,6 @@ class __TwigTemplate_a01bf3bd3dae387e1495cde4608bf836 extends Template
 
 </body>
 </html>
-", "@ApiPlatform/Graphiql/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
+", "@ApiPlatform/Graphiql/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
     }
 }
