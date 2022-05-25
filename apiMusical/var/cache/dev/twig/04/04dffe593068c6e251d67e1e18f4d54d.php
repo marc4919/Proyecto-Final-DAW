@@ -140,7 +140,7 @@ class __TwigTemplate_b1989c1c683938016cab36b60759a28c extends Template
 \t            <div class=\"form-group d-md-flex\">
 \t            \t<div class=\"w-50\">
 \t            \t\t<label class=\"checkbox-wrap checkbox-primary\">Remember Me
-\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\"  checked>
+\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\" name=\"_remember_me\" checked>
 \t\t\t\t\t\t\t\t\t  <span class=\"checkmark\"></span>
 \t\t\t\t\t\t\t\t\t</label>
 \t\t\t\t\t\t\t\t</div>
@@ -245,7 +245,7 @@ class __TwigTemplate_b1989c1c683938016cab36b60759a28c extends Template
 \t            <div class=\"form-group d-md-flex\">
 \t            \t<div class=\"w-50\">
 \t            \t\t<label class=\"checkbox-wrap checkbox-primary\">Remember Me
-\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\"  checked>
+\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\" name=\"_remember_me\" checked>
 \t\t\t\t\t\t\t\t\t  <span class=\"checkmark\"></span>
 \t\t\t\t\t\t\t\t\t</label>
 \t\t\t\t\t\t\t\t</div>

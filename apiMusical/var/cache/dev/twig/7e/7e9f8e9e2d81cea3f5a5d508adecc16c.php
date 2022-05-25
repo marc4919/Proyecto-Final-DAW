@@ -70,20 +70,21 @@ class __TwigTemplate_d60dd6f245e03357e3e2ab4cd55f5ad2 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "contenido"));
 
         // line 6
-        echo "    <h1>Editar Musical</h1>
+        echo "
+    <h1>Editar Musical</h1>
 
     ";
-        // line 8
-        echo twig_include($this->env, $context, "musical/_form.html.twig", ["button_label" => "Update"]);
+        // line 9
+        echo twig_include($this->env, $context, "musical/_form.html.twig", ["button_label" => "Actualizar"]);
         echo "
 
     <a href=\"";
-        // line 10
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_index");
         echo "\">Volver a la lista</a>
 
     ";
-        // line 12
+        // line 13
         echo twig_include($this->env, $context, "musical/_delete_form.html.twig");
         echo "
 ";
@@ -104,7 +105,7 @@ class __TwigTemplate_d60dd6f245e03357e3e2ab4cd55f5ad2 extends Template
 
     public function getDebugInfo()
     {
-        return array (  87 => 12,  82 => 10,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  88 => 13,  83 => 11,  78 => 9,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -114,9 +115,10 @@ class __TwigTemplate_d60dd6f245e03357e3e2ab4cd55f5ad2 extends Template
 {% block title %}Edit Musical{% endblock %}
 
 {% block contenido %}
+
     <h1>Editar Musical</h1>
 
-    {{ include('musical/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('musical/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
     <a href=\"{{ path('app_musical_index') }}\">Volver a la lista</a>
 

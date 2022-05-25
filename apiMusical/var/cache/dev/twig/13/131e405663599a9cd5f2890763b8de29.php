@@ -130,7 +130,7 @@ class __TwigTemplate_f0f323dcf569fe362e99c02c205e413f extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_new");
         echo "\">Añadir Participante</a>
     </br>
-    <div class=\"container-fluid h-100\"> 
+    <div class=\"container-fluid\"> 
     \t\t<div class=\"row w-100 align-items-center\">
     \t\t\t<div class=\"col text-center\">
     \t\t\t\t<a href=\"";
@@ -200,7 +200,7 @@ class __TwigTemplate_f0f323dcf569fe362e99c02c205e413f extends Template
 
     <a href=\"{{ path('app_participante_new') }}\">Añadir Participante</a>
     </br>
-    <div class=\"container-fluid h-100\"> 
+    <div class=\"container-fluid\"> 
     \t\t<div class=\"row w-100 align-items-center\">
     \t\t\t<div class=\"col text-center\">
     \t\t\t\t<a href=\"{{ path('app_participante_pdfAction') }}\"><button class=\"btn btn-primary regular-button\"> Imprimir </button></a>

@@ -39,12 +39,12 @@ class __TwigTemplate_31238b8b69e9991fd49a4ca60087c54b extends Template
         // line 1
         echo "<form method=\"post\" action=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_participante_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["participante"]) || array_key_exists("participante", $context) ? $context["participante"] : (function () { throw new RuntimeError('Variable "participante" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
-        echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        echo "\" onsubmit=\"return confirm('Seguro que deseas eliminar?');\">
     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["participante"]) || array_key_exists("participante", $context) ? $context["participante"] : (function () { throw new RuntimeError('Variable "participante" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-     <br><button type=\"button\" class=\"btn btn-outline-danger\">Eliminar</button>
+     <br><button type=\"btn\" class=\"btn btn-outline-danger\">Eliminar</button>
 </form>
 ";
         
@@ -69,9 +69,9 @@ class __TwigTemplate_31238b8b69e9991fd49a4ca60087c54b extends Template
 
     public function getSourceContext()
     {
-        return new Source("<form method=\"post\" action=\"{{ path('app_participante_delete', {'id': participante.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('app_participante_delete', {'id': participante.id}) }}\" onsubmit=\"return confirm('Seguro que deseas eliminar?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ participante.id) }}\">
-     <br><button type=\"button\" class=\"btn btn-outline-danger\">Eliminar</button>
+     <br><button type=\"btn\" class=\"btn btn-outline-danger\">Eliminar</button>
 </form>
 ", "participante/_delete_form.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/proyectoFinal/apiMusical/templates/participante/_delete_form.html.twig");
     }
