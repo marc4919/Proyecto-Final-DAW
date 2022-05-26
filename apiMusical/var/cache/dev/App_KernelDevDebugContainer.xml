@@ -6230,10 +6230,25 @@
         <argument key="knpSnappyPdf" type="service_closure" id="knp_snappy.pdf"/>
       </argument>
     </service>
+    <service id=".service_locator.iOw65Nk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="musicalRepository" type="service_closure" id="App\Repository\MusicalRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.fh89mcT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="participante" type="service_closure" id=".errored..service_locator.fh89mcT.App\Entity\Participante"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Trpe8Jr" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="musicalRepository" type="service_closure" id="App\Repository\MusicalRepository"/>
+        <argument key="participante" type="service_closure" id=".errored..service_locator.Trpe8Jr.App\Entity\Participante"/>
       </argument>
     </service>
     <service id=".service_locator.pPSJa7S" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6277,7 +6292,7 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.xylul3J" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.jWfNcRV" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AudioController::delete" type="service_closure" id=".service_locator.aLucqk5"/>
@@ -6296,9 +6311,9 @@
         <argument key="App\Controller\MusicalController::new" type="service_closure" id=".service_locator.9F18iJP"/>
         <argument key="App\Controller\MusicalController::show" type="service_closure" id=".service_locator..oD9six"/>
         <argument key="App\Controller\ParticipanteController::delete" type="service_closure" id=".service_locator.pPSJa7S"/>
-        <argument key="App\Controller\ParticipanteController::edit" type="service_closure" id=".service_locator.pPSJa7S"/>
+        <argument key="App\Controller\ParticipanteController::edit" type="service_closure" id=".service_locator.Trpe8Jr"/>
         <argument key="App\Controller\ParticipanteController::index" type="service_closure" id=".service_locator.aKM6MDa"/>
-        <argument key="App\Controller\ParticipanteController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ParticipanteController::new" type="service_closure" id=".service_locator.iOw65Nk"/>
         <argument key="App\Controller\ParticipanteController::pdfAction" type="service_closure" id=".service_locator.orA08eh"/>
         <argument key="App\Controller\ParticipanteController::show" type="service_closure" id=".service_locator.fh89mcT"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.59.oRhZ"/>
@@ -6330,9 +6345,9 @@
         <argument key="App\Controller\MusicalController:new" type="service_closure" id=".service_locator.9F18iJP"/>
         <argument key="App\Controller\MusicalController:show" type="service_closure" id=".service_locator..oD9six"/>
         <argument key="App\Controller\ParticipanteController:delete" type="service_closure" id=".service_locator.pPSJa7S"/>
-        <argument key="App\Controller\ParticipanteController:edit" type="service_closure" id=".service_locator.pPSJa7S"/>
+        <argument key="App\Controller\ParticipanteController:edit" type="service_closure" id=".service_locator.Trpe8Jr"/>
         <argument key="App\Controller\ParticipanteController:index" type="service_closure" id=".service_locator.aKM6MDa"/>
-        <argument key="App\Controller\ParticipanteController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ParticipanteController:new" type="service_closure" id=".service_locator.iOw65Nk"/>
         <argument key="App\Controller\ParticipanteController:pdfAction" type="service_closure" id=".service_locator.orA08eh"/>
         <argument key="App\Controller\ParticipanteController:show" type="service_closure" id=".service_locator.fh89mcT"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.59.oRhZ"/>
@@ -6709,12 +6724,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.xylul3J"/>
+      <argument type="service" id=".service_locator.jWfNcRV"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.xylul3J"/>
+      <argument type="service" id=".service_locator.jWfNcRV"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -6784,6 +6799,7 @@
     <service id=".errored..service_locator.MOLOjU2.App\Entity\Musical" class="App\Entity\Musical"/>
     <service id=".errored..service_locator.P_nCRXz.App\Entity\Musical" class="App\Entity\Musical"/>
     <service id=".errored..service_locator.fh89mcT.App\Entity\Participante" class="App\Entity\Participante"/>
+    <service id=".errored..service_locator.Trpe8Jr.App\Entity\Participante" class="App\Entity\Participante"/>
     <service id=".errored..service_locator.pPSJa7S.App\Entity\Participante" class="App\Entity\Participante"/>
     <service id=".errored..service_locator.4T4EJFR.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.9uW928t.App\Entity\User" class="App\Entity\User"/>
@@ -7565,7 +7581,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.xylul3J"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.jWfNcRV"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7580,9 +7596,10 @@
     <service id=".service_locator.Xbsa8iG" alias="api_platform.filter_locator"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~MSztJ7f"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
+    <service id=".service_locator..DPs.sc" alias=".service_locator.Trpe8Jr"/>
     <service id=".service_locator.ng5GItH" alias=".service_locator.pPSJa7S"/>
     <service id=".service_locator.j_7xucR" alias=".service_locator.59.oRhZ"/>
-    <service id=".service_locator.fWvXc28" alias=".service_locator.xylul3J"/>
+    <service id=".service_locator.S90cdAq" alias=".service_locator.jWfNcRV"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.XU93n6A" alias=".service_locator.ZBIBESi"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
@@ -7659,7 +7676,9 @@
     <service id=".service_locator.ctBYXtD" alias=".service_locator.P_nCRXz"/>
     <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.GicSScr" alias=".service_locator.orA08eh"/>
+    <service id=".service_locator.ZWfkSMn" alias=".service_locator.iOw65Nk"/>
     <service id=".service_locator.m0rLMAF" alias=".service_locator.fh89mcT"/>
+    <service id=".service_locator.xsItW2x" alias=".service_locator.Trpe8Jr"/>
     <service id=".service_locator.LpoCuEq" alias=".service_locator.pPSJa7S"/>
     <service id=".service_locator.UpTyVBf" alias=".service_locator.59.oRhZ"/>
     <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>

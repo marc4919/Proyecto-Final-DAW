@@ -7,7 +7,10 @@ use App\Repository\AudioRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AudioRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    collectionOperations: ['get'],
+    itemOperations: ['get'],
+)]
 class Audio
 {
     #[ORM\Id]
