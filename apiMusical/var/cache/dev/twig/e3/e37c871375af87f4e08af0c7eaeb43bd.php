@@ -45,14 +45,14 @@ class __TwigTemplate_94572077a939564de2fbb7cd7037a854 extends Template
         <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">
         ";
         // line 8
-        echo "    
+        echo "        <style>td{width:500px; border: black solid 1px};</style>
     </head>
     <body>
-        <table class=\"table\">
+        <h1 style=\"text-align:center\">Listado Participantes</h1>
+        <table class=\"table\" style=\"margin:0 auto\">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
+                <th>Nombre y Apellidos</th>
             </tr>
         </thead>
         <tbody>
@@ -67,17 +67,15 @@ class __TwigTemplate_94572077a939564de2fbb7cd7037a854 extends Template
                 <td>";
             // line 21
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participante"], "Nombre", [], "any", false, false, false, 21), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participante"], "Apellidos", [], "any", false, false, false, 22), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participante"], "Apellidos", [], "any", false, false, false, 21), "html", null, true);
             echo "</td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 25
+            // line 24
             echo "            <tr>
                 <td colspan=\"4\">no records found</td>
             </tr>
@@ -86,7 +84,7 @@ class __TwigTemplate_94572077a939564de2fbb7cd7037a854 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['participante'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 28
         echo "        </tbody>
     </table>
     </body>
@@ -109,7 +107,7 @@ class __TwigTemplate_94572077a939564de2fbb7cd7037a854 extends Template
 
     public function getDebugInfo()
     {
-        return array (  90 => 29,  81 => 25,  73 => 22,  69 => 21,  66 => 20,  61 => 19,  48 => 8,  40 => 1,);
+        return array (  88 => 28,  79 => 24,  69 => 21,  66 => 20,  61 => 19,  48 => 8,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -121,21 +119,20 @@ class __TwigTemplate_94572077a939564de2fbb7cd7037a854 extends Template
         <title>OLA</title>
         <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-    
+        <style>td{width:500px; border: black solid 1px};</style>
     </head>
     <body>
-        <table class=\"table\">
+        <h1 style=\"text-align:center\">Listado Participantes</h1>
+        <table class=\"table\" style=\"margin:0 auto\">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
+                <th>Nombre y Apellidos</th>
             </tr>
         </thead>
         <tbody>
         {% for participante in participantes %}
             <tr>
-                <td>{{ participante.Nombre }}</td>
-                <td>{{ participante.Apellidos }}</td>
+                <td>{{ participante.Nombre }} {{ participante.Apellidos }}</td>
             </tr>
         {% else %}
             <tr>

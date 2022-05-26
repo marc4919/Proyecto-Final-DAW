@@ -38,61 +38,45 @@ return [
                             .'|docs(?:\\.([^/]++))?(*:118)'
                             .'|contexts/(.+)(?:\\.([^/]++))?(*:154)'
                             .'|imagens(?'
-                                .'|(?:\\.([^/]++))?(?'
-                                    .'|(*:190)'
-                                .')'
-                                .'|/([^/\\.]++)(?:\\.([^/]++))?(?'
-                                    .'|(*:228)'
-                                .')'
+                                .'|(?:\\.([^/]++))?(*:187)'
+                                .'|/([^/\\.]++)(?:\\.([^/]++))?(*:221)'
                             .')'
                             .'|musicals(?'
-                                .'|(?:\\.([^/]++))?(?'
-                                    .'|(*:267)'
-                                .')'
-                                .'|/([^/\\.]++)(?:\\.([^/]++))?(?'
-                                    .'|(*:305)'
-                                .')'
+                                .'|(?:\\.([^/]++))?(*:256)'
+                                .'|/([^/\\.]++)(?:\\.([^/]++))?(*:290)'
                             .')'
                             .'|audio(?'
-                                .'|(?:\\.([^/]++))?(?'
-                                    .'|(*:341)'
-                                .')'
-                                .'|/([^/\\.]++)(?:\\.([^/]++))?(?'
-                                    .'|(*:379)'
-                                .')'
+                                .'|(?:\\.([^/]++))?(*:322)'
+                                .'|/([^/\\.]++)(?:\\.([^/]++))?(*:356)'
                             .')'
                             .'|participantes(?'
-                                .'|(?:\\.([^/]++))?(?'
-                                    .'|(*:423)'
-                                .')'
-                                .'|/([^/\\.]++)(?:\\.([^/]++))?(?'
-                                    .'|(*:461)'
-                                .')'
+                                .'|(?:\\.([^/]++))?(*:396)'
+                                .'|/([^/\\.]++)(?:\\.([^/]++))?(*:430)'
                             .')'
                         .')'
                     .')'
                 .')'
                 .'|/imagen/([^/]++)(?'
-                    .'|(*:493)'
-                    .'|/edit(*:506)'
-                    .'|(*:514)'
+                    .'|(*:461)'
+                    .'|/edit(*:474)'
+                    .'|(*:482)'
                 .')'
                 .'|/musical/([^/]++)(?'
-                    .'|(*:543)'
-                    .'|/edit(*:556)'
-                    .'|(*:564)'
+                    .'|(*:511)'
+                    .'|/edit(*:524)'
+                    .'|(*:532)'
                 .')'
                 .'|/participante/([^/]++)(?'
-                    .'|(*:598)'
-                    .'|/edit(*:611)'
-                    .'|(*:619)'
+                    .'|(*:566)'
+                    .'|/edit(*:579)'
+                    .'|(*:587)'
                 .')'
                 .'|/user/([^/]++)(?'
-                    .'|(*:645)'
-                    .'|/edit(*:658)'
-                    .'|(*:666)'
+                    .'|(*:613)'
+                    .'|/edit(*:626)'
+                    .'|(*:634)'
                 .')'
-                .'|/_error/(\\d+)(?:\\.([^/]++))?(*:703)'
+                .'|/_error/(\\d+)(?:\\.([^/]++))?(*:671)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -102,59 +86,27 @@ return [
         88 => [[['_route' => 'api_entrypoint', '_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index', '_format'], null, null, false, true, null]],
         118 => [[['_route' => 'api_doc', '_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], ['_format'], null, null, false, true, null]],
         154 => [[['_route' => 'api_jsonld_context', '_controller' => 'api_platform.jsonld.action.context', '_format' => 'jsonld', '_api_respond' => 'true'], ['shortName', '_format'], null, null, false, true, null]],
-        190 => [
-            [['_route' => 'api_imagens_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Imagen', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null],
-            [['_route' => 'api_imagens_post_collection', '_controller' => 'api_platform.action.post_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Imagen', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'post'], ['_format'], ['POST' => 0], null, false, true, null],
-        ],
-        228 => [
-            [['_route' => 'api_imagens_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Imagen', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null],
-            [['_route' => 'api_imagens_delete_item', '_controller' => 'api_platform.action.delete_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Imagen', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'delete'], ['id', '_format'], ['DELETE' => 0], null, false, true, null],
-            [['_route' => 'api_imagens_put_item', '_controller' => 'api_platform.action.put_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Imagen', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'put'], ['id', '_format'], ['PUT' => 0], null, false, true, null],
-            [['_route' => 'api_imagens_patch_item', '_controller' => 'api_platform.action.patch_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Imagen', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'patch'], ['id', '_format'], ['PATCH' => 0], null, false, true, null],
-        ],
-        267 => [
-            [['_route' => 'api_musicals_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Musical', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null],
-            [['_route' => 'api_musicals_post_collection', '_controller' => 'api_platform.action.post_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Musical', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'post'], ['_format'], ['POST' => 0], null, false, true, null],
-        ],
-        305 => [
-            [['_route' => 'api_musicals_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Musical', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null],
-            [['_route' => 'api_musicals_delete_item', '_controller' => 'api_platform.action.delete_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Musical', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'delete'], ['id', '_format'], ['DELETE' => 0], null, false, true, null],
-            [['_route' => 'api_musicals_put_item', '_controller' => 'api_platform.action.put_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Musical', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'put'], ['id', '_format'], ['PUT' => 0], null, false, true, null],
-            [['_route' => 'api_musicals_patch_item', '_controller' => 'api_platform.action.patch_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Musical', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'patch'], ['id', '_format'], ['PATCH' => 0], null, false, true, null],
-        ],
-        341 => [
-            [['_route' => 'api_audio_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Audio', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null],
-            [['_route' => 'api_audio_post_collection', '_controller' => 'api_platform.action.post_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Audio', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'post'], ['_format'], ['POST' => 0], null, false, true, null],
-        ],
-        379 => [
-            [['_route' => 'api_audio_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Audio', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null],
-            [['_route' => 'api_audio_delete_item', '_controller' => 'api_platform.action.delete_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Audio', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'delete'], ['id', '_format'], ['DELETE' => 0], null, false, true, null],
-            [['_route' => 'api_audio_put_item', '_controller' => 'api_platform.action.put_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Audio', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'put'], ['id', '_format'], ['PUT' => 0], null, false, true, null],
-            [['_route' => 'api_audio_patch_item', '_controller' => 'api_platform.action.patch_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Audio', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'patch'], ['id', '_format'], ['PATCH' => 0], null, false, true, null],
-        ],
-        423 => [
-            [['_route' => 'api_participantes_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Participante', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null],
-            [['_route' => 'api_participantes_post_collection', '_controller' => 'api_platform.action.post_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Participante', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'post'], ['_format'], ['POST' => 0], null, false, true, null],
-        ],
-        461 => [
-            [['_route' => 'api_participantes_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Participante', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null],
-            [['_route' => 'api_participantes_delete_item', '_controller' => 'api_platform.action.delete_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Participante', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'delete'], ['id', '_format'], ['DELETE' => 0], null, false, true, null],
-            [['_route' => 'api_participantes_put_item', '_controller' => 'api_platform.action.put_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Participante', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'put'], ['id', '_format'], ['PUT' => 0], null, false, true, null],
-            [['_route' => 'api_participantes_patch_item', '_controller' => 'api_platform.action.patch_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Participante', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'patch'], ['id', '_format'], ['PATCH' => 0], null, false, true, null],
-        ],
-        493 => [[['_route' => 'app_imagen_show', '_controller' => 'App\\Controller\\ImagenController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        506 => [[['_route' => 'app_imagen_edit', '_controller' => 'App\\Controller\\ImagenController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        514 => [[['_route' => 'app_imagen_delete', '_controller' => 'App\\Controller\\ImagenController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        543 => [[['_route' => 'app_musical_show', '_controller' => 'App\\Controller\\MusicalController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        556 => [[['_route' => 'app_musical_edit', '_controller' => 'App\\Controller\\MusicalController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        564 => [[['_route' => 'app_musical_delete', '_controller' => 'App\\Controller\\MusicalController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        598 => [[['_route' => 'app_participante_show', '_controller' => 'App\\Controller\\ParticipanteController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        611 => [[['_route' => 'app_participante_edit', '_controller' => 'App\\Controller\\ParticipanteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        619 => [[['_route' => 'app_participante_delete', '_controller' => 'App\\Controller\\ParticipanteController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        645 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        658 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        666 => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        703 => [
+        187 => [[['_route' => 'api_imagens_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Imagen', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null]],
+        221 => [[['_route' => 'api_imagens_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Imagen', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null]],
+        256 => [[['_route' => 'api_musicals_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Musical', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null]],
+        290 => [[['_route' => 'api_musicals_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Musical', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null]],
+        322 => [[['_route' => 'api_audio_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Audio', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null]],
+        356 => [[['_route' => 'api_audio_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Audio', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null]],
+        396 => [[['_route' => 'api_participantes_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Participante', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null]],
+        430 => [[['_route' => 'api_participantes_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Participante', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null]],
+        461 => [[['_route' => 'app_imagen_show', '_controller' => 'App\\Controller\\ImagenController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        474 => [[['_route' => 'app_imagen_edit', '_controller' => 'App\\Controller\\ImagenController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        482 => [[['_route' => 'app_imagen_delete', '_controller' => 'App\\Controller\\ImagenController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        511 => [[['_route' => 'app_musical_show', '_controller' => 'App\\Controller\\MusicalController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        524 => [[['_route' => 'app_musical_edit', '_controller' => 'App\\Controller\\MusicalController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        532 => [[['_route' => 'app_musical_delete', '_controller' => 'App\\Controller\\MusicalController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        566 => [[['_route' => 'app_participante_show', '_controller' => 'App\\Controller\\ParticipanteController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        579 => [[['_route' => 'app_participante_edit', '_controller' => 'App\\Controller\\ParticipanteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        587 => [[['_route' => 'app_participante_delete', '_controller' => 'App\\Controller\\ParticipanteController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        613 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        626 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        634 => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        671 => [
             [['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

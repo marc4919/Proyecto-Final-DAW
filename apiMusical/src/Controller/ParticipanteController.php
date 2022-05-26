@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Participante;
 use App\Form\ParticipanteType;
 use App\Repository\ParticipanteRepository;
+use App\Entity\Musical;
+use App\Repository\MusicalRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
@@ -45,13 +47,19 @@ class ParticipanteController extends AbstractController
     }
 
     #[Route('/new', name: 'app_participante_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, MusicalRepository $musicalRepository): Response
     {
         $participante = new Participante();
         $form = $this->createForm(ParticipanteType::class, $participante);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            foreach ($form['musicals']->getData()->getValues() as $v) {
+                $musical = $musicalRepository->find($v->getId());
+                if ($musical) {
+                    $musical->addParticipante($participante);
+                }
+            }
             $entityManager->persist($participante);
             $entityManager->flush();
 
@@ -74,12 +82,18 @@ class ParticipanteController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_participante_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Participante $participante, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Participante $participante, EntityManagerInterface $entityManager, MusicalRepository $musicalRepository): Response
     {
         $form = $this->createForm(ParticipanteType::class, $participante);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            foreach ($form['musicals']->getData()->getValues() as $seleccionado) {
+                $musical = $musicalRepository->find($seleccionado->getId());
+                if ($musical) {
+                    $musical->addParticipante($participante);
+                }
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('app_participante_index', [], Response::HTTP_SEE_OTHER);

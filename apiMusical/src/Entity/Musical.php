@@ -9,7 +9,10 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MusicalRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    collectionOperations: ['get'],
+    itemOperations: ['get'],
+)]
 class Musical
 {
     #[ORM\Id]
@@ -20,7 +23,7 @@ class Musical
     #[ORM\Column(type: 'string', length: 50)]
     private $Nombre;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'text', length: 255)]
     private $Sinopsis;
 
     #[ORM\Column(type: 'string', length: 255)]
