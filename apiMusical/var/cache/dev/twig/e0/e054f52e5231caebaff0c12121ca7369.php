@@ -114,7 +114,7 @@ class __TwigTemplate_532bab7a21cff42ec0494b4346ef95d9 extends Template
         if (!$context['_iterated']) {
             // line 27
             echo "            <tr>
-                <td colspan=\"5\">no records found</td>
+                <td colspan=\"5\">No hay resultados disponibles</td>
             </tr>
         ";
         }
@@ -124,11 +124,11 @@ class __TwigTemplate_532bab7a21cff42ec0494b4346ef95d9 extends Template
         // line 31
         echo "        </tbody>
     </table>
-
-    <a href=\"";
-        // line 34
+<button type=\"button\" class=\"btn btn-light\"><a href=\"";
+        // line 33
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
-        echo "\">Crear nuevo</a>
+        echo "\">Crear nuevo</a></button>
+    
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -147,7 +147,7 @@ class __TwigTemplate_532bab7a21cff42ec0494b4346ef95d9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  130 => 34,  125 => 31,  116 => 27,  107 => 23,  103 => 22,  98 => 20,  94 => 19,  91 => 18,  86 => 17,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  129 => 33,  125 => 31,  116 => 27,  107 => 23,  103 => 22,  98 => 20,  94 => 19,  91 => 18,  86 => 17,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -179,13 +179,13 @@ class __TwigTemplate_532bab7a21cff42ec0494b4346ef95d9 extends Template
             </tr>
         {% else %}
             <tr>
-                <td colspan=\"5\">no records found</td>
+                <td colspan=\"5\">No hay resultados disponibles</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href=\"{{ path('app_register') }}\">Crear nuevo</a>
+<button type=\"button\" class=\"btn btn-light\"><a href=\"{{ path('app_register') }}\">Crear nuevo</a></button>
+    
 {% endblock %}
 ", "user/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/user/index.html.twig");
     }

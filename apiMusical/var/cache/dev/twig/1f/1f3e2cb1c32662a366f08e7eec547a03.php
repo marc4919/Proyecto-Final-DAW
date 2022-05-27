@@ -71,7 +71,10 @@ class __TwigTemplate_2144ec1830ab0f204c7426b68b4f9ecd extends Template
 
         // line 6
         echo "    <h2 class=\"mb-4\">Imágenes</h2>
-
+         <button type=\"button\" class=\"btn btn-light\"><a href=\"";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_imagen_new");
+        echo "\">+ Añadir Imagen</a></button>
     <table class=\"table\">
         <thead>
             <tr>
@@ -119,7 +122,7 @@ class __TwigTemplate_2144ec1830ab0f204c7426b68b4f9ecd extends Template
         if (!$context['_iterated']) {
             // line 29
             echo "            <tr>
-                <td colspan=\"4\">no records found</td>
+                <td colspan=\"4\">No hay resultados disponibles</td>
             </tr>
         ";
         }
@@ -130,10 +133,10 @@ class __TwigTemplate_2144ec1830ab0f204c7426b68b4f9ecd extends Template
         echo "        </tbody>
     </table>
 
-    <a href=\"";
+         <button type=\"button\" class=\"btn btn-light\"><a href=\"";
         // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_imagen_new");
-        echo "\">Añadir Imagen</a>
+        echo "\">+ Añadir Imagen</a></button>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -152,7 +155,7 @@ class __TwigTemplate_2144ec1830ab0f204c7426b68b4f9ecd extends Template
 
     public function getDebugInfo()
     {
-        return array (  135 => 36,  130 => 33,  121 => 29,  112 => 25,  108 => 24,  103 => 22,  99 => 21,  95 => 20,  92 => 19,  87 => 18,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  138 => 36,  133 => 33,  124 => 29,  115 => 25,  111 => 24,  106 => 22,  102 => 21,  98 => 20,  95 => 19,  90 => 18,  76 => 7,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -163,7 +166,7 @@ class __TwigTemplate_2144ec1830ab0f204c7426b68b4f9ecd extends Template
 
 {% block contenido %}
     <h2 class=\"mb-4\">Imágenes</h2>
-
+         <button type=\"button\" class=\"btn btn-light\"><a href=\"{{ path('app_imagen_new') }}\">+ Añadir Imagen</a></button>
     <table class=\"table\">
         <thead>
             <tr>
@@ -186,13 +189,13 @@ class __TwigTemplate_2144ec1830ab0f204c7426b68b4f9ecd extends Template
             </tr>
         {% else %}
             <tr>
-                <td colspan=\"4\">no records found</td>
+                <td colspan=\"4\">No hay resultados disponibles</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_imagen_new') }}\">Añadir Imagen</a>
+         <button type=\"button\" class=\"btn btn-light\"><a href=\"{{ path('app_imagen_new') }}\">+ Añadir Imagen</a></button>
 {% endblock %}
 ", "imagen/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/imagen/index.html.twig");
     }

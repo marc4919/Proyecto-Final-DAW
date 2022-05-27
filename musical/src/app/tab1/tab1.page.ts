@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MusicalesService } from 'src/app/services/musicales.service'
+import { MusicalesService } from 'src/app/services/musicales.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,7 +7,7 @@ import { MusicalesService } from 'src/app/services/musicales.service'
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  musicales:any = [];
+  musicales = [];
 
   constructor(private MusicalesService: MusicalesService) {}
 

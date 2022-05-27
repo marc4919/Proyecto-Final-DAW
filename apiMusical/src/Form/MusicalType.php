@@ -20,7 +20,8 @@ class MusicalType extends AbstractType
             ->add('Cartel', DropzoneType::class , array('data_class' => null, 'attr' => array(
                 'placeholder' => 'Arrastra aquí o Seleciona'
             )))
-            ->add('Anyo')
+            ->add('Anyo', TextType::class, array(
+                'label' => 'Año'))
             ->add('Video')
             ->add('participantes')
         ;

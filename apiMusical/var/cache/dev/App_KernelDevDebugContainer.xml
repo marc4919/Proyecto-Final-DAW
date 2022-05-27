@@ -357,11 +357,32 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\AudioController"/>
       </call>
     </service>
+    <service id="App\Controller\ContactController" class="App\Controller\ContactController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ContactController"/>
+      </call>
+    </service>
+    <service id="App\Controller\DevelopmentInfoController" class="App\Controller\DevelopmentInfoController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\DevelopmentInfoController"/>
+      </call>
+    </service>
     <service id="App\Controller\ImagenController" class="App\Controller\ImagenController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ImagenController"/>
+      </call>
+    </service>
+    <service id="App\Controller\InfoAppController" class="App\Controller\InfoAppController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\InfoAppController"/>
       </call>
     </service>
     <service id="App\Controller\MainController" class="App\Controller\MainController" public="true" autowire="true" autoconfigure="true">
@@ -4972,7 +4993,7 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id=".security.request_matcher..7tBYY."/>
+        <argument type="service" id=".security.request_matcher.f9Cto52"/>
         <argument type="collection">
           <argument>ROLE_ADMIN</argument>
         </argument>
@@ -4994,6 +5015,27 @@
       </call>
       <call method="add">
         <argument type="service" id=".security.request_matcher.O7Tsk.w"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.2lGgPDo"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.l.VNFXW"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.WUOQRJt"/>
         <argument type="collection">
           <argument>ROLE_ADMIN</argument>
         </argument>
@@ -5700,8 +5742,8 @@
     <service id=".security.request_matcher.YpuLiqW" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/participante</argument>
     </service>
-    <service id=".security.request_matcher..7tBYY." class="Symfony\Component\HttpFoundation\RequestMatcher">
-      <argument>^/imagen/</argument>
+    <service id=".security.request_matcher.f9Cto52" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/imagen</argument>
     </service>
     <service id=".security.request_matcher.Y4qxvV4" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/audio</argument>
@@ -5711,6 +5753,15 @@
     </service>
     <service id=".security.request_matcher.O7Tsk.w" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/register</argument>
+    </service>
+    <service id=".security.request_matcher.2lGgPDo" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/info</argument>
+    </service>
+    <service id=".security.request_matcher.l.VNFXW" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/development</argument>
+    </service>
+    <service id=".security.request_matcher.WUOQRJt" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/contact</argument>
     </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand">
       <tag name="console.command" command="security:encode-password"/>
@@ -5744,9 +5795,18 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AudioController" class="App\Controller\AudioController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AudioController" class="App\Controller\AudioController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AudioController" class="App\Controller\AudioController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DevelopmentInfoController" class="App\Controller\DevelopmentInfoController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DevelopmentInfoController" class="App\Controller\DevelopmentInfoController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DevelopmentInfoController" class="App\Controller\DevelopmentInfoController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ImagenController" class="App\Controller\ImagenController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ImagenController" class="App\Controller\ImagenController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ImagenController" class="App\Controller\ImagenController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\InfoAppController" class="App\Controller\InfoAppController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\InfoAppController" class="App\Controller\InfoAppController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\InfoAppController" class="App\Controller\InfoAppController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6511,9 +6571,27 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\ContactController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ContactController"/>
+      <argument>App\Controller\ContactController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\DevelopmentInfoController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\DevelopmentInfoController"/>
+      <argument>App\Controller\DevelopmentInfoController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\ImagenController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ImagenController"/>
       <argument>App\Controller\ImagenController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\InfoAppController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\InfoAppController"/>
+      <argument>App\Controller\InfoAppController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>

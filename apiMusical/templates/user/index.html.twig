@@ -25,11 +25,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">No hay resultados disponibles</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_register') }}">Crear nuevo</a>
+<button type="button" class="btn btn-light"><a href="{{ path('app_register') }}">Crear nuevo</a></button>
+    
 {% endblock %}

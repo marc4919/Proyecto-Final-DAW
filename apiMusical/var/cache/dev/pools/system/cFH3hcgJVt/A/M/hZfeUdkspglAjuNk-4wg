@@ -20,16 +20,28 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 true,
             ],
             'readableLink' => [
-                false,
+                true,
             ],
             'writableLink' => [
-                false,
+                true,
             ],
             'required' => [
                 false,
             ],
             'identifier' => [
                 false,
+            ],
+            'attributes' => [
+                [
+                    'deprecation_reason' => null,
+                    'fetchable' => null,
+                    'fetch_eager' => null,
+                    'jsonld_context' => null,
+                    'openapi_context' => null,
+                    'push' => null,
+                    'security' => null,
+                    'swagger_context' => null,
+                ],
             ],
             'initializable' => [
                 false,

@@ -1,10 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -12,56 +5,33 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-  <pre>{{musicales | json}}</pre>
-  <ion-grid>
-    <ion-row>
+  <div>
+  <ion-grid *ngFor="let elemento of musicales['hydra:member']; let indice=index; let last=last">
+
+    <ion-row *ngIf="indice % 2 === 0">
       <ion-col size="6">
         <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Año Musical</ion-card-subtitle>
-            <ion-card-title>Título Musical</ion-card-title>
-          </ion-card-header>
           <ion-card-content>
-            Keep close to Nature's heart...
+            <img [src]="'http://localhost:8000/uploads/carteles/'+musicales['hydra:member'][indice]['cartel']">
           </ion-card-content>
+          <ion-card-header>
+            <ion-card-subtitle>{{musicales['hydra:member'][indice]["anyo"]}}</ion-card-subtitle>
+            <ion-card-title>{{musicales['hydra:member'][indice]["nombre"]}}</ion-card-title>
+          </ion-card-header>
         </ion-card>
       </ion-col>
-      <ion-col size="6">
+      <ion-col size="6" *ngIf="last !== true">
         <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Año Musical</ion-card-subtitle>
-            <ion-card-title>Título Musical</ion-card-title>
-          </ion-card-header>
           <ion-card-content>
-            Keep close to Nature's heart...
+            <img [src]="'http://localhost:8000/uploads/carteles/'+musicales['hydra:member'][indice+1]['cartel']">
           </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card>
           <ion-card-header>
-            <ion-card-subtitle>Año Musical</ion-card-subtitle>
-            <ion-card-title>Título Musical</ion-card-title>
+            <ion-card-subtitle>{{musicales['hydra:member'][indice+1]["anyo"]}}</ion-card-subtitle>
+            <ion-card-title>{{musicales['hydra:member'][indice+1]["nombre"]}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>
-            Keep close to Nature's heart...
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Año Musical</ion-card-subtitle>
-            <ion-card-title>Título Musical</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            Keep close to Nature's heart...
-          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
+</div>
 </ion-content>

@@ -4,7 +4,16 @@
 
 {% block contenido %}
    <h2 class="mb-4">Participantes</h2>
-
+    <div class="container-fluid"> 
+    		<div class="row w-100 align-items-center">
+    			<div class="col text-center">
+    				<a href="{{ path('app_participante_pdfAction') }}"><button class="btn btn-primary regular-button"> Imprimir </button></a>
+    			</div>	
+    		</div>
+    
+    
+    	</div>
+     <button type="button" class="btn btn-light"><a href="{{ path('app_participante_new') }}">+ Añadir Participante</a></button>
     <table class="table">
         <thead>
             <tr>
@@ -25,13 +34,13 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">No hay resultados disponibles</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_participante_new') }}">Añadir Participante</a>
+     <button type="button" class="btn btn-light"><a href="{{ path('app_participante_new') }}">+ Añadir Participante</a></button>
     </br>
     <div class="container-fluid"> 
     		<div class="row w-100 align-items-center">

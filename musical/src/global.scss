@@ -107,3 +107,14 @@ body {
 .swiper-slide:nth-child(10n) {
   background-color: rgb(54, 94, 77);
 }
+
+body{
+  &::-webkit-scrollbar {
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
