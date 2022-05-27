@@ -4,7 +4,7 @@
 
 {% block contenido %}
     <h2 class="mb-4">Audios</h2>
-
+<button type="button" class="btn btn-light"><a href="{{ path('app_audio_new') }}">+ Añadir Audio</a></button>
     <table class="table">
         <thead>
             <tr>
@@ -32,6 +32,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_audio_new') }}">Añadir Audio</a>
+<button type="button" class="btn btn-light"><a href="{{ path('app_audio_new') }}">+ Añadir Audio</a></button>
+    
 {% endblock %}

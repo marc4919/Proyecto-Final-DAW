@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiProperty;
 use App\Repository\MusicalRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -38,6 +40,8 @@ class Musical
     #[ORM\OneToMany(mappedBy: 'musical', targetEntity: Imagen::class)]
     private $imagenes;
 
+    #[Groups("musical")]
+    #[ApiProperty(readableLink: true, writableLink: true)]
     #[ORM\OneToMany(mappedBy: 'musical', targetEntity: Audio::class)]
     private $audios;
 

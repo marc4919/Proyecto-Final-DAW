@@ -4,7 +4,7 @@
 
 {% block contenido %}
     <h2 class="mb-4">Imágenes</h2>
-
+         <button type="button" class="btn btn-light"><a href="{{ path('app_imagen_new') }}">+ Añadir Imagen</a></button>
     <table class="table">
         <thead>
             <tr>
@@ -27,11 +27,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">No hay resultados disponibles</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_imagen_new') }}">Añadir Imagen</a>
+         <button type="button" class="btn btn-light"><a href="{{ path('app_imagen_new') }}">+ Añadir Imagen</a></button>
 {% endblock %}

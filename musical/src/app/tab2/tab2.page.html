@@ -9,17 +9,10 @@
 <ion-content [fullscreen]="true">
   <br>
   <swiper [effect]="'cards'" [grabCursor]="true" class="mySwiper">
-    <ng-template swiperSlide>Slide 1</ng-template>
-    <ng-template swiperSlide>Slide 2</ng-template>
-    <ng-template swiperSlide>Slide 3</ng-template>
-    <ng-template swiperSlide>Slide 4</ng-template>
-    <ng-template swiperSlide>Slide 5</ng-template>
-    <ng-template swiperSlide>Slide 6</ng-template>
-    <ng-template swiperSlide>Slide 7</ng-template>
-    <ng-template swiperSlide>Slide 8</ng-template>
-    <ng-template swiperSlide>Slide 9</ng-template>
+    <ng-template swiperSlide *ngFor="let elemento of imagenes['hydra:member']; let indice=index; let last=last"><img [src]="'http://localhost:8000/uploads/images/'+elemento.enlace"></ng-template>
   </swiper>
   <br>
+  <!--
   <button pButton pRipple type="button" label="Primary" class="p-button-rounded"></button>
 <button pButton pRipple type="button" label="Secondary" class="p-button-rounded"></button>
 <button pButton pRipple type="button" label="Success" class="p-button-rounded"></button>
@@ -27,4 +20,5 @@
 <button pButton pRipple type="button" label="Warning" class="p-button-rounded"></button>
 <button pButton pRipple type="button" label="Help" class="p-button-rounded"></button>
 <button pButton pRipple type="button" label="Danger" class="p-button-rounded"></button>
+-->
 </ion-content>

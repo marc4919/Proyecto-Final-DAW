@@ -71,7 +71,10 @@ class __TwigTemplate_ff30b2d6739080c5ffb42fd8ed591e62 extends Template
 
         // line 6
         echo "    <h2 class=\"mb-4\">Audios</h2>
-
+<button type=\"button\" class=\"btn btn-light\"><a href=\"";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_audio_new");
+        echo "\">+ Añadir Audio</a></button>
     <table class=\"table\">
         <thead>
             <tr>
@@ -129,11 +132,11 @@ class __TwigTemplate_ff30b2d6739080c5ffb42fd8ed591e62 extends Template
         // line 33
         echo "        </tbody>
     </table>
-
-    <a href=\"";
-        // line 36
+<button type=\"button\" class=\"btn btn-light\"><a href=\"";
+        // line 35
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_audio_new");
-        echo "\">Añadir Audio</a>
+        echo "\">+ Añadir Audio</a></button>
+    
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -152,7 +155,7 @@ class __TwigTemplate_ff30b2d6739080c5ffb42fd8ed591e62 extends Template
 
     public function getDebugInfo()
     {
-        return array (  135 => 36,  130 => 33,  121 => 29,  112 => 25,  108 => 24,  103 => 22,  99 => 21,  95 => 20,  92 => 19,  87 => 18,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  137 => 35,  133 => 33,  124 => 29,  115 => 25,  111 => 24,  106 => 22,  102 => 21,  98 => 20,  95 => 19,  90 => 18,  76 => 7,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -163,7 +166,7 @@ class __TwigTemplate_ff30b2d6739080c5ffb42fd8ed591e62 extends Template
 
 {% block contenido %}
     <h2 class=\"mb-4\">Audios</h2>
-
+<button type=\"button\" class=\"btn btn-light\"><a href=\"{{ path('app_audio_new') }}\">+ Añadir Audio</a></button>
     <table class=\"table\">
         <thead>
             <tr>
@@ -191,8 +194,8 @@ class __TwigTemplate_ff30b2d6739080c5ffb42fd8ed591e62 extends Template
         {% endfor %}
         </tbody>
     </table>
-
-    <a href=\"{{ path('app_audio_new') }}\">Añadir Audio</a>
+<button type=\"button\" class=\"btn btn-light\"><a href=\"{{ path('app_audio_new') }}\">+ Añadir Audio</a></button>
+    
 {% endblock %}
 ", "audio/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/audio/index.html.twig");
     }

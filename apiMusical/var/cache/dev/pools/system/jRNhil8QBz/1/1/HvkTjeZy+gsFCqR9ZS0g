@@ -1,0 +1,3 @@
+<?php //route_name_af55fb38356d1c25cc692d67ba794a6a
+
+return [PHP_INT_MAX, 'api_musicals_get_item'];

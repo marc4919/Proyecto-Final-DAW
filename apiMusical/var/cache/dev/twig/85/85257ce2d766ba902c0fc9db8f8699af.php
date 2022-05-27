@@ -71,55 +71,48 @@ class __TwigTemplate_21670acc2a47458fe54afbd23d68aca5 extends Template
 
         // line 6
         echo "     <h2 class=\"mb-4\">Musicales</h2>
-
+    <button type=\"button\" class=\"btn btn-light\"><a href=\"";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_new");
+        echo "\">+ Crear Musical</a></button>
     <table class=\"table\">
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Sinopsis</th>
                 <th>Cartel</th>
                 <th>Año</th>
-                <th>Vídeo</th>
                 <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 20
+        // line 18
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["musicals"]) || array_key_exists("musicals", $context) ? $context["musicals"] : (function () { throw new RuntimeError('Variable "musicals" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["musicals"]) || array_key_exists("musicals", $context) ? $context["musicals"] : (function () { throw new RuntimeError('Variable "musicals" does not exist.', 18, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["musical"]) {
-            // line 21
+            // line 19
             echo "            <tr>
                 <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["musical"], "Nombre", [], "any", false, false, false, 22), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["musical"], "Sinopsis", [], "any", false, false, false, 23), "html", null, true);
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["musical"], "Nombre", [], "any", false, false, false, 20), "html", null, true);
             echo "</td>
                 <td><img style=\"width:50px\" src=\"/uploads/carteles/";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["musical"], "Cartel", [], "any", false, false, false, 24), "html", null, true);
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["musical"], "Cartel", [], "any", false, false, false, 21), "html", null, true);
             echo "\"></img></td>
                 <td>";
-            // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["musical"], "Anyo", [], "any", false, false, false, 25), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["musical"], "Video", [], "any", false, false, false, 26), "html", null, true);
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["musical"], "Anyo", [], "any", false, false, false, 22), "html", null, true);
             echo "</td>
                 <td>
                     <a href=\"";
-            // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_show", ["id" => twig_get_attribute($this->env, $this->source, $context["musical"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_show", ["id" => twig_get_attribute($this->env, $this->source, $context["musical"], "id", [], "any", false, false, false, 24)]), "html", null, true);
             echo "\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z\"/></svg></a>
                     <a href=\"";
-            // line 29
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["musical"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+            // line 25
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["musical"], "id", [], "any", false, false, false, 25)]), "html", null, true);
             echo "\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M14.078 7.061l2.861 2.862-10.799 10.798-3.584.723.724-3.585 10.798-10.798zm0-2.829l-12.64 12.64-1.438 7.128 7.127-1.438 12.642-12.64-5.691-5.69zm7.105 4.277l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z\"/></svg></a>
                 </td>
             </tr>
@@ -127,23 +120,23 @@ class __TwigTemplate_21670acc2a47458fe54afbd23d68aca5 extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 33
+            // line 29
             echo "            <tr>
-                <td colspan=\"7\">no records found</td>
+                <td colspan=\"7\">No hay resultados disponibles</td>
             </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['musical'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 33
         echo "        </tbody>
     </table>
 
-    <a href=\"";
-        // line 40
+    <button type=\"button\" class=\"btn btn-light\"><a href=\"";
+        // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_musical_new");
-        echo "\">Crear Musical</a>
+        echo "\">+ Crear Musical</a></button>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -162,7 +155,7 @@ class __TwigTemplate_21670acc2a47458fe54afbd23d68aca5 extends Template
 
     public function getDebugInfo()
     {
-        return array (  145 => 40,  140 => 37,  131 => 33,  122 => 29,  118 => 28,  113 => 26,  109 => 25,  105 => 24,  101 => 23,  97 => 22,  94 => 21,  89 => 20,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  138 => 36,  133 => 33,  124 => 29,  115 => 25,  111 => 24,  106 => 22,  102 => 21,  98 => 20,  95 => 19,  90 => 18,  76 => 7,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -173,15 +166,13 @@ class __TwigTemplate_21670acc2a47458fe54afbd23d68aca5 extends Template
 
 {% block contenido %}
      <h2 class=\"mb-4\">Musicales</h2>
-
+    <button type=\"button\" class=\"btn btn-light\"><a href=\"{{ path('app_musical_new') }}\">+ Crear Musical</a></button>
     <table class=\"table\">
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Sinopsis</th>
                 <th>Cartel</th>
                 <th>Año</th>
-                <th>Vídeo</th>
                 <th>Opciones</th>
             </tr>
         </thead>
@@ -189,10 +180,8 @@ class __TwigTemplate_21670acc2a47458fe54afbd23d68aca5 extends Template
         {% for musical in musicals %}
             <tr>
                 <td>{{ musical.Nombre }}</td>
-                <td>{{ musical.Sinopsis }}</td>
                 <td><img style=\"width:50px\" src=\"/uploads/carteles/{{ musical.Cartel }}\"></img></td>
                 <td>{{ musical.Anyo }}</td>
-                <td>{{ musical.Video }}</td>
                 <td>
                     <a href=\"{{ path('app_musical_show', {'id': musical.id}) }}\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z\"/></svg></a>
                     <a href=\"{{ path('app_musical_edit', {'id': musical.id}) }}\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M14.078 7.061l2.861 2.862-10.799 10.798-3.584.723.724-3.585 10.798-10.798zm0-2.829l-12.64 12.64-1.438 7.128 7.127-1.438 12.642-12.64-5.691-5.69zm7.105 4.277l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z\"/></svg></a>
@@ -200,13 +189,13 @@ class __TwigTemplate_21670acc2a47458fe54afbd23d68aca5 extends Template
             </tr>
         {% else %}
             <tr>
-                <td colspan=\"7\">no records found</td>
+                <td colspan=\"7\">No hay resultados disponibles</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_musical_new') }}\">Crear Musical</a>
+    <button type=\"button\" class=\"btn btn-light\"><a href=\"{{ path('app_musical_new') }}\">+ Crear Musical</a></button>
 {% endblock %}
 ", "musical/index.html.twig", "/Users/marc/MEGA/MEGAsync/upside down/Proyecto-Final-DAW/apiMusical/templates/musical/index.html.twig");
     }

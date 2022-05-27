@@ -10,8 +10,11 @@ return [
     [ // $staticRoutes
         '/audio' => [[['_route' => 'app_audio_index', '_controller' => 'App\\Controller\\AudioController::index'], null, ['GET' => 0], null, true, false, null]],
         '/audio/new' => [[['_route' => 'app_audio_new', '_controller' => 'App\\Controller\\AudioController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/contact' => [[['_route' => 'app_contact', '_controller' => 'App\\Controller\\ContactController::index'], null, null, null, true, false, null]],
+        '/development' => [[['_route' => 'app_development_info', '_controller' => 'App\\Controller\\DevelopmentInfoController::index'], null, null, null, true, false, null]],
         '/imagen' => [[['_route' => 'app_imagen_index', '_controller' => 'App\\Controller\\ImagenController::index'], null, ['GET' => 0], null, true, false, null]],
         '/imagen/new' => [[['_route' => 'app_imagen_new', '_controller' => 'App\\Controller\\ImagenController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/info' => [[['_route' => 'app_info_app', '_controller' => 'App\\Controller\\InfoAppController::index'], null, null, null, true, false, null]],
         '/main' => [[['_route' => 'app_main', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
         '/musical' => [[['_route' => 'app_musical_index', '_controller' => 'App\\Controller\\MusicalController::index'], null, ['GET' => 0], null, true, false, null]],
         '/musical/new' => [[['_route' => 'app_musical_new', '_controller' => 'App\\Controller\\MusicalController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],

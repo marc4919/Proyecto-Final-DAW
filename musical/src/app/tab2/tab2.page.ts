@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SwiperComponent } from 'swiper/angular';
+import { ImagenesService } from '../services/imagenes.service';
 import SwiperCore, { EffectCards } from 'swiper';
 
 SwiperCore.use([EffectCards]);
@@ -9,8 +10,13 @@ SwiperCore.use([EffectCards]);
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
+  imagenes = [];
 
-  constructor() {}
+  constructor(private ImagenesService: ImagenesService) {}
+
+  ngOnInit(): void {
+    this.ImagenesService.getAllImages().subscribe(response => this.imagenes = response);
+  }
 
 }

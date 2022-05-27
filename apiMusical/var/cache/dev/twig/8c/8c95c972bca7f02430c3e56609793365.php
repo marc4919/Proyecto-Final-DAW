@@ -144,7 +144,7 @@ class __TwigTemplate_8f31b5d00dc5b2d964652c540b678143 extends Template
         if (!$context['_iterated']) {
             // line 45
             echo "            <tr>
-                <td colspan=\"7\">no records found</td>
+                <td colspan=\"7\">No hay resultados disponibles</td>
             </tr>
         ";
         }
@@ -227,7 +227,7 @@ class __TwigTemplate_8f31b5d00dc5b2d964652c540b678143 extends Template
             </tr>
         {% else %}
             <tr>
-                <td colspan=\"7\">no records found</td>
+                <td colspan=\"7\">No hay resultados disponibles</td>
             </tr>
         {% endfor %}
         </tbody>
