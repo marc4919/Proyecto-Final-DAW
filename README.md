@@ -1,9 +1,18 @@
 # Proyecto Final DAW
 
-## Autor
+## Características Clave
 
-- [marc4919](https://github.com/marc4919)
+- **Backend con Symfony**:
+  - Desarrollado con Symfony, el backend proporciona una API para gestionar información sobre musicales de instituto.
+  - La API admite operaciones CRUD (Crear, Leer, Actualizar y Eliminar) para la gestión de la información.
 
+- **Panel de Administración**:
+  - Incluye un panel de administración completo que aprovecha la API del backend.
+  - Los administradores pueden gestionar fácilmente los datos de los musicales, incluyendo detalles, elenco, fechas y más.
+
+- **Frontend con Angular/Ionic**:
+  - El lado del frontend se ha construido utilizando Angular e Ionic para crear una aplicación móvil híbrida.
+  - Los usuarios pueden acceder al contenido multimedia de los musicales, ver información detallada y mantenerse actualizados sobre eventos futuros.
 
 ## Licencia
 
@@ -38,3 +47,8 @@ Inicio Normal - Entorno de Pruebas Estandar
   symfony server:start
 ```
 https://localhost:8000/api -> API Platform
+
+## Autor
+
+- [marc4919](https://github.com/marc4919)
+
